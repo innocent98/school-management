@@ -4,24 +4,23 @@ import {
   SafeAreaView,
   ScrollView,
   ActivityIndicator,
-  TextInput
+  TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
-import {styles} from '../../../constants/styles';
-import {COLORS} from '../../../constants';
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {MotiView} from 'moti';
 import {Easing} from 'react-native-reanimated';
-import {SavedData} from '../students/EditStudent';
+import { COLORS } from '../../../../constants';
+import { styles } from '../../../../constants/styles';
+import { SavedData } from '../../students/EditStudent';
 
-const EditCalendar = ({route}) => {
-  const {r} = route.params;
+const EditCalendar = ({route}: any) => {
+  const {item} = route.params;
   const navigation = useNavigation();
 
   const [isLoading, setIsLoading] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-
 
   const handleAdd = () => {
     setIsLoading(true);
@@ -46,7 +45,7 @@ const EditCalendar = ({route}) => {
               from={{right: -150, opacity: 0.5}}
               animate={{right: 0, opacity: 1}}
               transition={{
-                type: 'timing',
+                // type: 'timing',
                 duration: 1000,
                 easing: Easing.out(Easing.ease),
               }}
@@ -57,13 +56,13 @@ const EditCalendar = ({route}) => {
                   style={styles.addInput}
                   placeholder="Date"
                   placeholderTextColor="#000"
-                  defaultValue={r.date}
+                  defaultValue={item.date}
                 />
                 <TextInput
                   style={styles.addInput}
                   placeholder="Event"
                   placeholderTextColor="#000"
-                  defaultValue={r.title}
+                  defaultValue={item.title}
                 />
               </View>
 

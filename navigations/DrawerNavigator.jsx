@@ -17,14 +17,14 @@ import Reception from '../screens/admin/reception/Reception';
 import Results from '../screens/admin/results/Results';
 import Staffs from '../screens/admin/Staffs';
 import Students from '../screens/admin/students/Students';
-import Chat from '../screens/Chat';
-import CourseRegistration from '../screens/CourseRegistration';
-import ELibrary from '../screens/E-Library';
-import ExamRegistration from '../screens/ExamRegistration';
-import MyCourse from '../screens/MyCourse';
-import MyResults from '../screens/MyResults';
-import Profile from '../screens/Profile';
-import Project from '../screens/Project';
+import Chat from '../screens/student/Chat';
+import CourseRegistration from '../screens/student/CourseRegistration';
+import ELibrary from '../screens/student/e-library/E-Library';
+import ExamRegistration from '../screens/student/ExamRegistration';
+import MyCourse from '../screens/student/MyCourse';
+import MyResults from '../screens/student/MyResults';
+import Profile from '../screens/student/Profile';
+import Project from '../screens/student/Project';
 import {HomeNavigator, FeesNavigator} from './Stacks';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {View, Text} from 'react-native';
@@ -179,6 +179,7 @@ export default DrawerNavigator;
 //         ),
 //       }}
 //     />
+
 //     <Drawer.Screen
 //       name="Fees"
 //       component={FeesNavigator}
@@ -212,6 +213,7 @@ export default DrawerNavigator;
 //         ),
 //       }}
 //     />
+
 //     <Drawer.Screen
 //       name="CourseRegistration"
 //       component={CourseRegistration}
@@ -241,6 +243,7 @@ export default DrawerNavigator;
 //         ),
 //       }}
 //     />
+
 //     <Drawer.Screen
 //       name="Project"
 //       component={Project}
@@ -270,6 +273,7 @@ export default DrawerNavigator;
 //         ),
 //       }}
 //     />
+
 //     <Drawer.Screen
 //       name="Library"
 //       component={ELibrary}
@@ -299,6 +303,7 @@ export default DrawerNavigator;
 //         ),
 //       }}
 //     />
+
 //     <Drawer.Screen
 //       name="ExamRegistration"
 //       component={ExamRegistration}

@@ -1,8 +1,24 @@
 export type ScreenParamLists = {
   Home: undefined;
   Profile: undefined;
+  MyCourse: undefined;
+  MyResults: undefined;
   MyFees: undefined;
   PaymentInfo: undefined;
-  FeesDetails: undefined;
-  MyCourse: undefined;
+  FeesDetails: {item: object};
+  CourseRegistration: undefined;
+  Project: undefined;
+  ELibrary: undefined;
+  ExamRegistration: undefined;
+  Academic: undefined;
+  Timetable: undefined;
+  Calendar: undefined;
+  AcademicSession: undefined;
+  Faculties: undefined;
+  Curriculum: undefined;
+  Assignment: undefined;
+  TimetableOption: undefined;
+  EditTimetable: {time: string};
+  EditCalendar: {item: object};
+  StudentProfile: {item: object};
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from './screens/Login';
+import Login from './screens/student/Login';
 import {useSelector} from 'react-redux';
 import StudentStackNavigator from './navigations/StudentStackNavigator';
 

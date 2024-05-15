@@ -11,7 +11,7 @@ import React, {useState} from 'react';
 import {styles} from '../../../constants/styles';
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {Logo} from '../../Home';
+import {Logo} from '../../student/Home';
 import {faculties, options, schoolCourses} from '../../../constants/dummy';
 import {AnimatePresence, MotiView} from 'moti';
 import {Easing} from 'react-native-reanimated';

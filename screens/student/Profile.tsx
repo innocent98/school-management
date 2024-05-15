@@ -1,14 +1,14 @@
 import {View, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
-import {COLORS, SIZES} from '../constants';
-import {style} from '../constants/style';
-import FocusedStatusBar from '../components/FocusedStatusBar';
-import LogoBanner from '../components/LogoBanner';
-import SlideAnimation from '../components/SlideAnimation';
-import StudentDrawer from '../components/StudentDrawer';
-import TopComponent from '../components/TopComponent';
-import SmallText from '../components/widgets/SmallText';
-import MediumText from '../components/widgets/MediumText';
+import {COLORS, SIZES} from '../../constants';
+import {style} from '../../constants/style';
+import FocusedStatusBar from '../../components/FocusedStatusBar';
+import LogoBanner from '../../components/LogoBanner';
+import SlideAnimation from '../../components/SlideAnimation';
+import StudentDrawer from '../../components/StudentDrawer';
+import TopComponent from '../../components/TopComponent';
+import SmallText from '../../components/widgets/SmallText';
+import MediumText from '../../components/widgets/MediumText';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Profile = () => {
@@ -27,7 +27,11 @@ const Profile = () => {
           <LogoBanner />
 
           <View style={style.card}>
-            <View style={[style.card, {backgroundColor: COLORS.light.primary}]}>
+            <View
+              style={[
+                style.card,
+                {backgroundColor: COLORS.light.primary, padding: SIZES.large},
+              ]}>
               <MediumText text="My Details" />
             </View>
 

@@ -8,11 +8,11 @@ import {
   Animated,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import {COLORS, SIZES} from '../constants';
+import {COLORS, SIZES} from '../../constants';
 import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import {useSelector} from 'react-redux';
-import {userRequest} from '../redux/requestMethod';
+import {userRequest} from '../../redux/requestMethod';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
 // import {io} from 'socket.io-client';
@@ -24,7 +24,7 @@ import {
 } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Divider} from 'react-native-paper';
-import {styles} from '../constants/styles';
+import {styles} from '../../constants/styles';
 
 export const FriendList = prop => {
   const user = useSelector(state => state.user.currentUser);

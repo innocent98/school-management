@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {styles} from '../../../constants/styles';
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {Logo} from '../../Home';
+import {Logo} from '../../student/Home';
 import {level} from '../../../constants/dummy';
 import {SavedData} from '../students/EditStudent';
 

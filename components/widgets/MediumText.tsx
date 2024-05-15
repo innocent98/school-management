@@ -2,15 +2,23 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {style} from '../../constants/style';
 import {COLORS} from '../../constants';
+import {FONTS} from '../../constants/theme';
 
 interface Props {
   text: string;
   textColor?: string;
   textAlign?: any;
+  fontFamily?: string;
   onPress?: () => void;
 }
 
-const MediumText: React.FC<Props> = ({text, textColor, textAlign, onPress}) => {
+const MediumText: React.FC<Props> = ({
+  text,
+  textColor,
+  textAlign,
+  fontFamily,
+  onPress,
+}) => {
   return (
     <Text
       style={[
@@ -18,6 +26,7 @@ const MediumText: React.FC<Props> = ({text, textColor, textAlign, onPress}) => {
         {
           color: textColor || COLORS.light.white,
           textAlign: textAlign || 'center',
+          fontFamily: fontFamily || FONTS.bold,
         },
       ]}
       onPress={onPress}>

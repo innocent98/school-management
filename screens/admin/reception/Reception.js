@@ -3,7 +3,7 @@ import React from 'react';
 import {styles} from '../../../constants/styles';
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {Logo} from '../../Home';
+import {Logo} from '../../student/Home';
 
 const Reception = () => {
   const navigation = useNavigation();

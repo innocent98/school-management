@@ -19,6 +19,23 @@ const navigationData = [
   {id: 1, icon: 'dashboard', text: 'Home', path: 'Home'},
   {id: 2, icon: 'account-circle', text: 'Profile', path: 'Profile'},
   {id: 3, icon: 'book', text: 'My Courses', path: 'MyCourse'},
+  {id: 4, icon: 'bar-chart', text: 'My Results', path: 'MyResults'},
+  {id: 5, icon: 'account-balance-wallet', text: 'My Fees', path: 'MyFees'},
+  {
+    id: 6,
+    icon: 'school',
+    text: 'Course Registration',
+    path: 'CourseRegistration',
+  },
+  {id: 7, icon: 'work', text: 'Project', path: 'Project'},
+  {id: 8, icon: 'local-library', text: 'E-Library', path: 'ELibrary'},
+  {
+    id: 9,
+    icon: 'app-registration',
+    text: 'Exam Registration',
+    path: 'ExamRegistration',
+  },
+  {id: 10, icon: 'school', text: 'Academic', path: 'Academic'},
 ];
 
 const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {
@@ -39,6 +56,7 @@ const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {
         style={{position: 'absolute', right: -30}}
         onPress={slideOut}
       />
+
       <View style={[style.column, {alignItems: 'flex-start', gap: SIZES.base}]}>
         {navigationData.map(item => (
           <Pressable

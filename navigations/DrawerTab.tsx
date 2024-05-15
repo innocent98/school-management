@@ -3,7 +3,7 @@ import React, {useRef} from 'react';
 import {style} from '../constants/style';
 import FocusedStatusBar from '../components/FocusedStatusBar';
 import TopComponent from '../components/TopComponent';
-import Home from '../screens/Home';
+import Home from '../screens/student/Home';
 import {COLORS} from '../constants';
 import Drawer from '../components/StudentDrawer';
 

@@ -20,7 +20,17 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: SIZES.font,
     padding: SIZES.l,
+    gap: SIZES.font,
     ...SHADOWS.dark,
+  },
+
+  outlineCard: {
+    width: '100%',
+    borderRadius: SIZES.base,
+    padding: SIZES.small,
+    borderWidth: 1,
+    borderColor: COLORS.light.gray,
+    gap: SIZES.base,
   },
 
   bgImg: {height: '100%'},
@@ -37,19 +47,19 @@ export const style = StyleSheet.create({
   smallText: {
     color: COLORS.light.white,
     fontFamily: FONTS.regular,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.font,
   },
 
   mediumText: {
     color: COLORS.light.white,
     fontFamily: FONTS.bold,
-    fontSize: SIZES.large,
+    fontSize: SIZES.medium,
   },
 
   bigText: {
     color: COLORS.light.white,
     fontFamily: FONTS.bold,
-    fontSize: SIZES.l,
+    fontSize: SIZES.extraLarge,
   },
 
   logoBanner: {height: itemHeight * 0.1, width: '100%'},
@@ -87,7 +97,7 @@ export const style = StyleSheet.create({
 
   tableHead: {
     flexDirection: 'row',
-    backgroundColor: '#f1f8ff',
+    backgroundColor: COLORS.light.tableHead,
   },
 
   tableBody: {
@@ -97,10 +107,12 @@ export const style = StyleSheet.create({
   tableItem: {
     color: COLORS.light.black,
     textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontFamily: FONTS.regular,
-    padding: SIZES.medium,
+    padding: SIZES.small,
     borderWidth: 1,
-    borderColor: '#c8e1ff',
+    borderColor: COLORS.light.tableBorder,
     width: itemWidth * 0.3,
     fontSize: SIZES.font,
   },

@@ -1,17 +1,16 @@
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
-import {COLORS, SIZES} from '../constants';
-import {courses} from '../constants';
-import {style} from '../constants/style';
-import FocusedStatusBar from '../components/FocusedStatusBar';
-import LogoBanner from '../components/LogoBanner';
-import SlideAnimation from '../components/SlideAnimation';
-import StudentDrawer from '../components/StudentDrawer';
-import TopComponent from '../components/TopComponent';
-import BigText from '../components/widgets/BigText';
-import Button from '../components/widgets/Button';
-import ScreenSizes from '../constants/utils/ScreenSizes';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {COLORS, SIZES} from '../../constants';
+import {courses} from '../../constants';
+import {style} from '../../constants/style';
+import FocusedStatusBar from '../../components/FocusedStatusBar';
+import LogoBanner from '../../components/LogoBanner';
+import SlideAnimation from '../../components/SlideAnimation';
+import StudentDrawer from '../../components/StudentDrawer';
+import TopComponent from '../../components/TopComponent';
+import BigText from '../../components/widgets/BigText';
+import Button from '../../components/widgets/Button';
+import ScreenSizes from '../../constants/utils/ScreenSizes';
 
 const MyCourse = () => {
   const {slideAnim, slideIn, slideOut} = SlideAnimation();
@@ -34,26 +33,13 @@ const MyCourse = () => {
               <View style={[style.column]}>
                 <BigText text="My Course List" textColor={COLORS.light.black} />
 
-                <View style={style.row}>
-                  <Button
-                    btnText={'PRINT COURSE SHEET'}
-                    textColor={COLORS.light.white}
-                    buttonColor={COLORS.light.primary}
-                    width={itemWidth * 0.5}
-                    onPress={() => {}}
-                  />
-
-                  <MaterialIcons
-                    name="file-download"
-                    size={SIZES.xl}
-                    color={COLORS.light.white}
-                    style={{
-                      backgroundColor: COLORS.light.secondary,
-                      padding: SIZES.small,
-                      borderRadius: 8,
-                    }}
-                  />
-                </View>
+                <Button
+                  btnText={'PRINT MY COURSE SHEET'}
+                  textColor={COLORS.light.white}
+                  buttonColor={COLORS.light.primary}
+                  width={itemWidth * 0.5}
+                  onPress={() => {}}
+                />
 
                 {/* table */}
                 <ScrollView horizontal={true}>

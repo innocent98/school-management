@@ -32,6 +32,9 @@ export const COLORS = {
     black: 'rgba(26, 26, 26, 1)',
     red: 'rgba(254, 98, 98, 1)',
     success: 'rgba(38, 153, 105, 1)',
+    tableHead: '#f1f8ff',
+    tableBorder: '#c8e1ff',
+    edit: '#009EFB',
   },
   dark: {
     background: '#222',

@@ -1,16 +1,16 @@
 import {useState} from 'react';
 import {View, SafeAreaView, ImageBackground, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {COLORS, SIZES} from '../constants';
-import {login} from '../redux/apiCalls';
-import FocusedStatusBar from '../components/FocusedStatusBar';
-import {style} from '../constants/style';
-import {bgImg} from '../constants/utils/vars';
-import InputPaper from '../components/widgets/InputPaper';
-import ScreenSizes from '../constants/utils/ScreenSizes';
-import Button from '../components/widgets/Button';
-import SmallText from '../components/widgets/SmallText';
-import LogoBanner from '../components/LogoBanner';
+import {COLORS, SIZES} from '../../constants';
+import {login} from '../../redux/apiCalls';
+import FocusedStatusBar from '../../components/FocusedStatusBar';
+import {style} from '../../constants/style';
+import {bgImg} from '../../constants/utils/vars';
+import InputPaper from '../../components/widgets/InputPaper';
+import ScreenSizes from '../../constants/utils/ScreenSizes';
+import Button from '../../components/widgets/Button';
+import SmallText from '../../components/widgets/SmallText';
+import LogoBanner from '../../components/LogoBanner';
 
 const Login = () => {
   const {itemWidth} = ScreenSizes();

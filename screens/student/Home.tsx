@@ -1,16 +1,20 @@
 import {useState, useEffect} from 'react';
-import {View, Alert, SafeAreaView, Text} from 'react-native';
+import {View, Alert, SafeAreaView} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import FocusedStatusBar from '../components/FocusedStatusBar';
-import {COLORS, SIZES} from '../constants';
-import {styles} from '../constants/styles';
-import {style} from '../constants/style';
-import LogoBanner from '../components/LogoBanner';
-import {quoteUrl} from '../constants/utils/vars';
-import TopComponent from '../components/TopComponent';
-import StudentDrawer from '../components/StudentDrawer';
-import SlideAnimation from '../components/SlideAnimation';
+import FocusedStatusBar from '../../components/FocusedStatusBar';
+import {COLORS, SIZES} from '../../constants';
+import {styles} from '../../constants/styles';
+import {style} from '../../constants/style';
+import LogoBanner from '../../components/LogoBanner';
+import {quoteUrl} from '../../constants/utils/vars';
+import TopComponent from '../../components/TopComponent';
+import StudentDrawer from '../../components/StudentDrawer';
+import SlideAnimation from '../../components/SlideAnimation';
+import BigText from '../../components/widgets/BigText';
+import SmallText from '../../components/widgets/SmallText';
+import MediumText from '../../components/widgets/MediumText';
+import {FONTS} from '../../constants/theme';
 
 export const Logo = () => {
   return (
@@ -74,21 +78,40 @@ const Home = () => {
         <LogoBanner />
 
         <View style={[style.column]}>
-          <View style={style.card}>
-            <Text style={styles.welcomeText}>
-              {time < 12 ? 'Morning' : time < 17 ? 'Afternoon' : 'Evening'},
-              ADEBAYO VICTOR OLUWATOSIN
-            </Text>
-            <Text style={styles.text}>Welcome to IAEC-TOGO student portal</Text>
+          <View style={[style.card, {gap: SIZES.font}]}>
+            <BigText
+              text={`${
+                time < 12 ? 'Morning' : time < 17 ? 'Afternoon' : 'Evening'
+              }, ADEBAYO VICTOR OLUWATOSIN`}
+              textColor={COLORS.light.black}
+            />
+
+            <MediumText
+              text="Welcome to IAEC-TOGO student portal"
+              textColor={COLORS.light.black}
+              fontFamily={FONTS.regular}
+            />
             <Icon name="emoji-emotions" size={40} color={COLORS.primary} />
           </View>
 
           <View style={style.card}>
-            <Text style={styles.quoteText}>
-              Quote of the day! {time < 12 ? '🌅' : time < 17 ? '🌤️' : '🌇'}🌈
-            </Text>
-            <Text style={styles.text}>{quotes.text}</Text>
-            <Text style={styles.text}>~ {quotes.author}✨</Text>
+            <SmallText
+              text={`Quote of the day! ${
+                time < 12 ? '🌅' : time < 17 ? '🌤️' : '🌇'
+              }🌈`}
+              textColor={COLORS.light.black}
+              fontFamily={FONTS.bold}
+            />
+
+            <MediumText
+              text={quotes.text}
+              textColor={COLORS.light.black}
+              fontFamily={FONTS.regular}
+            />
+            <SmallText
+              text={`~ ${quotes.author} ✨`}
+              textColor={COLORS.light.black}
+            />
           </View>
         </View>
       </View>
