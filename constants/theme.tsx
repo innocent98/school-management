@@ -35,6 +35,7 @@ export const COLORS = {
     tableHead: '#f1f8ff',
     tableBorder: '#c8e1ff',
     edit: '#009EFB',
+    transparent: 'transparent',
   },
   dark: {
     background: '#222',

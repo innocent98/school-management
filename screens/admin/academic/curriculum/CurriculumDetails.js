@@ -8,16 +8,16 @@ import {
   Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
-import {styles} from '../../../constants/styles';
-import {COLORS} from '../../../constants';
+import {styles} from '../../../../constants/styles';
+import {COLORS} from '../../../../constants';
 import {RectButton} from 'react-native-gesture-handler';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {useNavigation} from '@react-navigation/native';
 import {AnimatePresence, MotiView} from 'moti';
 import {Easing} from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {SavedData} from '../students/EditStudent';
-import { courseList, departments, faculties} from '../../../constants/dummy';
+import {SavedData} from '../../students/EditStudent';
+import { courseList, departments, faculties} from '../../../../constants/dummy';
 
 const AddCourse = ({setAdd, setIsAdd}) => {
   const [selected, setSelected] = useState('');

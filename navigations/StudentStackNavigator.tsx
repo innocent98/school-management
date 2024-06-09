@@ -29,14 +29,17 @@ import ExamRegistration from '../screens/student/ExamRegistration';
 import Academic from '../screens/admin/academic/Academic';
 import Timetable from '../screens/admin/academic/timetable/Timetable';
 import Calendar from '../screens/admin/academic/calendar/Calendar';
-import AcademicSession from '../screens/admin/academic/AcademicSession';
-import Faculties from '../screens/admin/academic/Faculties';
-import Curriculum from '../screens/admin/academic/Curriculum';
+import AcademicSession from '../screens/admin/academic/academicSession/AcademicSession';
+import Faculties from '../screens/admin/academic/faculties/Faculties';
+import Curriculum from '../screens/admin/academic/curriculum/Curriculum';
 import Assignment from '../screens/admin/academic/Assignment';
 import TimetableOption from '../screens/admin/academic/timetable/TimetableOption';
 import EditTimetable from '../screens/admin/academic/timetable/EditTimetble';
 import StudentProfile from '../screens/admin/students/StudentProfile';
 import EditCalendar from '../screens/admin/academic/calendar/EditCalendar';
+import FacultyCourses from '../screens/admin/academic/faculties/FacultyCourses';
+import CurriculumLevel from '../screens/admin/academic/curriculum/CurriculumLevel';
+import CurriculumDetails from '../screens/admin/academic/curriculum/CurriculumDetails';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -81,6 +84,9 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="Curriculum" component={Curriculum} />
       <Stack.Screen name="Assignment" component={Assignment} />
       <Stack.Screen name="StudentProfile" component={StudentProfile} />
+      <Stack.Screen name="FacultyCourses" component={FacultyCourses} />
+      <Stack.Screen name="CurriculumLevel" component={CurriculumLevel} />
+      <Stack.Screen name="CurriculumDetails" component={CurriculumDetails} />
 
       {/* <Stack.Screen
         name="Receptionist"

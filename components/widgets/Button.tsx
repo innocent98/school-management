@@ -8,7 +8,9 @@ interface Props {
   textColor: string;
   buttonColor: string;
   width?: number;
+  alignItems?: any;
   disabled?: boolean;
+
   onPress: () => void;
 }
 
@@ -18,13 +20,21 @@ const Button: React.FC<Props> = ({
   textColor,
   width,
   disabled,
+  alignItems,
   onPress,
 }) => {
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled || false}
-      style={[style.button, {backgroundColor: buttonColor, width}]}>
+      style={[
+        style.button,
+        {
+          backgroundColor: buttonColor,
+          width,
+          alignItems: alignItems || 'center',
+        },
+      ]}>
       <SmallText text={btnText} textColor={textColor} />
     </Pressable>
   );

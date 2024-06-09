@@ -3,10 +3,11 @@ import React, {useState} from 'react';
 import {AnimatePresence, MotiView} from 'moti';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {COLORS} from '../../../../constants';
+import {faculties} from '../../../../constants/dummy';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Input from '../../../../components/widgets/Input';
-import ScreenSizes from '../../../../constants/utils/ScreenSizes';
 import {style} from '../../../../constants/style';
+import ScreenSizes from '../../../../constants/utils/ScreenSizes';
+import Input from '../../../../components/widgets/Input';
 import Button from '../../../../components/widgets/Button';
 
 interface Props {
@@ -14,16 +15,15 @@ interface Props {
   setIsAdd: (value: boolean) => void;
 }
 
-const AddCalendar: React.FC<Props> = ({setAdd, setIsAdd}) => {
-  const {itemWidth, itemHeight} = ScreenSizes();
+const AddDepartment: React.FC<Props> = ({setAdd, setIsAdd}) => {
+  const {itemWidth} = ScreenSizes();
 
-  const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
-  const data = [
-    {key: '1', value: 'Fall Semester'},
-    {key: '2', value: 'Spring Semester'},
-    {key: '3', value: 'Summer Semester'},
-  ];
+  const [isLoading, setIsLoading] = useState(false);
+
+  const faculty = faculties.map(faculty => {
+    return {key: faculty.id, value: faculty.faculty};
+  });
 
   const handleAdd = () => {
     setIsLoading(true);
@@ -52,12 +52,11 @@ const AddCalendar: React.FC<Props> = ({setAdd, setIsAdd}) => {
           style={style.closeIcon}
           onPress={() => setAdd(false)}
         />
-
         <SelectList
           setSelected={(value: string) => setSelected(value)}
-          data={data}
+          data={faculty}
           save="value"
-          placeholder="Semester"
+          placeholder="Select Faculty"
           inputStyles={{
             width: itemWidth * 0.9,
             borderRadius: 20,
@@ -74,29 +73,22 @@ const AddCalendar: React.FC<Props> = ({setAdd, setIsAdd}) => {
           }}
           dropdownStyles={style.dropdown}
           search={false}
+          //   maxHeight={Dimensions.get('window').height * 0.4}
         />
 
         <Input
-          placeholder={'Date'}
-          placeholderColor={COLORS.light.black}
+          placeholder={'Department'}
+          placeholderColor={COLORS.light.gray}
           borderColor={COLORS.light.lightgray}
           width={itemWidth * 0.9}
-          color={COLORS.light.black}
-        />
-
-        <Input
-          placeholder={'Event'}
-          placeholderColor={COLORS.light.black}
-          borderColor={COLORS.light.lightgray}
-          width={itemWidth * 0.9}
-          color={COLORS.light.black}
+          color={COLORS.light.white}
         />
 
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.light.secondary} />
         ) : (
           <Button
-            btnText={'Add Calendar'}
+            btnText={'Add Department'}
             textColor={COLORS.light.white}
             buttonColor={COLORS.light.secondary}
             width={itemWidth * 0.42}
@@ -108,4 +100,4 @@ const AddCalendar: React.FC<Props> = ({setAdd, setIsAdd}) => {
   );
 };
 
-export default AddCalendar;
+export default AddDepartment;

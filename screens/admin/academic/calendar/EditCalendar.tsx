@@ -1,22 +1,21 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  ActivityIndicator,
-  TextInput,
-} from 'react-native';
+import {View, SafeAreaView, ScrollView, ActivityIndicator} from 'react-native';
 import React, {useState} from 'react';
-import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {MotiView} from 'moti';
-import {Easing} from 'react-native-reanimated';
-import { COLORS } from '../../../../constants';
-import { styles } from '../../../../constants/styles';
-import { SavedData } from '../../students/EditStudent';
+import {COLORS, SIZES} from '../../../../constants';
+import {SavedData} from '../../students/EditStudent';
+import FocusedStatusBar from '../../../../components/FocusedStatusBar';
+import {style} from '../../../../constants/style';
+import ScreenSizes from '../../../../constants/utils/ScreenSizes';
+import LogoBanner from '../../../../components/LogoBanner';
+import SmallText from '../../../../components/widgets/SmallText';
+import Input from '../../../../components/widgets/Input';
+import Button from '../../../../components/widgets/Button';
 
 const EditCalendar = ({route}: any) => {
   const {item} = route.params;
+
+  const {itemWidth, itemHeight} = ScreenSizes();
+
   const navigation = useNavigation();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -35,55 +34,64 @@ const EditCalendar = ({route}: any) => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView
+      style={[style.safeArea, {backgroundColor: COLORS.light.primary}]}>
+      <FocusedStatusBar backgroundColor={COLORS.light.primary} />
       {isEdit && <SavedData />}
 
-      <ScrollView style={styles.ScrollView}>
-        <View style={styles.editContainer}>
-          <ScrollView>
-            <MotiView
-              from={{right: -150, opacity: 0.5}}
-              animate={{right: 0, opacity: 1}}
-              transition={{
-                // type: 'timing',
-                duration: 1000,
-                easing: Easing.out(Easing.ease),
-              }}
-              style={styles.editView}>
-              <View>
-                <Text style={styles.editLabel}>Calendar Information</Text>
-                <TextInput
-                  style={styles.addInput}
-                  placeholder="Date"
-                  placeholderTextColor="#000"
-                  defaultValue={item.date}
-                />
-                <TextInput
-                  style={styles.addInput}
-                  placeholder="Event"
-                  placeholderTextColor="#000"
-                  defaultValue={item.title}
-                />
-              </View>
+      <ScrollView>
+        <View style={style.container}>
+          <LogoBanner />
 
-              <View style={styles.flexBtn}>
-                {isLoading ? (
-                  <RectButton style={styles.indicator}>
-                    <ActivityIndicator size="large" color={COLORS.secondary} />
-                  </RectButton>
-                ) : (
-                  <RectButton onPress={handleAdd} style={styles.editButton}>
-                    <Text style={styles.buttonText}>Save</Text>
-                  </RectButton>
-                )}
-                <RectButton
-                  onPress={() => navigation.goBack()}
-                  style={styles.editButtonE}>
-                  <Text style={styles.buttonText}>Exit</Text>
-                </RectButton>
-              </View>
-            </MotiView>
-          </ScrollView>
+          <View style={[style.column, {marginTop: SIZES.xl}]}>
+            <SmallText
+              text="Calendar Information"
+              textColor={COLORS.light.white}
+            />
+
+            <Input
+              placeholder={'Date'}
+              placeholderColor={COLORS.light.gray}
+              borderColor={COLORS.light.white}
+              width={itemWidth * 0.9}
+              color={COLORS.light.black}
+              backgroundColor={COLORS.light.white}
+              defaultValue={item.date}
+            />
+
+            <Input
+              placeholder={'Event'}
+              placeholderColor={COLORS.light.gray}
+              borderColor={COLORS.light.white}
+              width={itemWidth * 0.9}
+              color={COLORS.light.black}
+              backgroundColor={COLORS.light.white}
+              defaultValue={item.title}
+            />
+
+            <View style={style.row}>
+              {isLoading ? (
+                <View style={{width: itemWidth * 0.42}}>
+                  <ActivityIndicator color={COLORS.light.secondary} />
+                </View>
+              ) : (
+                <Button
+                  btnText={'Save'}
+                  textColor={COLORS.light.white}
+                  buttonColor={'transparent'}
+                  width={itemWidth * 0.42}
+                  onPress={handleAdd}
+                />
+              )}
+              <Button
+                btnText={'Exit'}
+                textColor={COLORS.light.white}
+                buttonColor={COLORS.light.secondary}
+                width={itemWidth * 0.42}
+                onPress={() => navigation.goBack()}
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

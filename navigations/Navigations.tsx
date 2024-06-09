@@ -21,4 +21,7 @@ export type ScreenParamLists = {
   EditTimetable: {time: string};
   EditCalendar: {item: object};
   StudentProfile: {item: object};
+  FacultyCourses: {item: object};
+  CurriculumLevel: {item: object};
+  CurriculumDetails: {item: object; lev: object};
 };

@@ -9,6 +9,8 @@ interface Props {
   borderColor: string;
   width: number;
   color: string;
+  defaultValue?: any;
+  backgroundColor?: string;
 }
 
 const Input: React.FC<Props> = ({
@@ -17,6 +19,8 @@ const Input: React.FC<Props> = ({
   borderColor,
   width,
   color,
+  defaultValue,
+  backgroundColor,
 }) => {
   const {itemWidth} = ScreenSizes();
   return (
@@ -24,6 +28,7 @@ const Input: React.FC<Props> = ({
       placeholder={placeholder}
       placeholderTextColor={placeholderColor}
       cursorColor={COLORS.light.gray}
+      defaultValue={defaultValue}
       style={{
         borderRadius: 8,
         borderWidth: 1,
@@ -32,6 +37,7 @@ const Input: React.FC<Props> = ({
         color,
         paddingHorizontal: itemWidth * 0.02,
         fontFamily: FONTS.regular,
+        backgroundColor
       }}
     />
   );

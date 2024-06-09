@@ -116,4 +116,15 @@ export const style = StyleSheet.create({
     width: itemWidth * 0.3,
     fontSize: SIZES.font,
   },
+
+  closeIcon: {
+    backgroundColor: COLORS.light.white,
+    borderRadius: SIZES.extraLarge,
+    ...SHADOWS.dark,
+    padding: 8,
+    marginBottom: 15,
+    marginTop: -35,
+  },
+
+  dropdown: {borderColor: COLORS.light.lightgray, color: COLORS.light.black},
 });
