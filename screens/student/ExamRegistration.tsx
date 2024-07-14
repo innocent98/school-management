@@ -53,7 +53,7 @@ const ExamRegistration = () => {
             <Button
               btnText={'SUBMIT'}
               textColor={COLORS.light.white}
-              buttonColor={COLORS.light.primary}
+              buttonColor={COLORS.light.secondary}
               width={itemWidth * 0.4}
               onPress={() => {}}
             />

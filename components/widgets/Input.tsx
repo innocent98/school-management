@@ -1,9 +1,9 @@
-import {View, Text, TextInput} from 'react-native';
+import {KeyboardType, TextInput} from 'react-native';
 import React from 'react';
 import ScreenSizes from '../../constants/utils/ScreenSizes';
 import {COLORS, FONTS} from '../../constants/theme';
 
-interface Props {
+type Props = {
   placeholder: string;
   placeholderColor: string;
   borderColor: string;
@@ -11,33 +11,33 @@ interface Props {
   color: string;
   defaultValue?: any;
   backgroundColor?: string;
-}
+  multiline?: boolean;
+  onPressIn?: (value: any) => void;
+  value?: any;
+  keyboardType?: KeyboardType
+};
 
-const Input: React.FC<Props> = ({
-  placeholder,
-  placeholderColor,
-  borderColor,
-  width,
-  color,
-  defaultValue,
-  backgroundColor,
-}) => {
+const Input = (props: Props) => {
   const {itemWidth} = ScreenSizes();
   return (
     <TextInput
-      placeholder={placeholder}
-      placeholderTextColor={placeholderColor}
-      cursorColor={COLORS.light.gray}
-      defaultValue={defaultValue}
+      placeholder={props.placeholder}
+      placeholderTextColor={props.placeholderColor}
+      cursorColor={COLORS.light.secondary}
+      defaultValue={props.defaultValue}
+      multiline={props.multiline}
+      onPressIn={props.onPressIn}
+      value={props.value}
+      keyboardType={props.keyboardType}
       style={{
         borderRadius: 8,
         borderWidth: 1,
-        borderColor,
-        width,
-        color,
+        borderColor: props.borderColor,
+        width: props.width,
+        color: props.color,
         paddingHorizontal: itemWidth * 0.02,
         fontFamily: FONTS.regular,
-        backgroundColor
+        backgroundColor: props.backgroundColor,
       }}
     />
   );

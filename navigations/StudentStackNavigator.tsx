@@ -32,7 +32,7 @@ import Calendar from '../screens/admin/academic/calendar/Calendar';
 import AcademicSession from '../screens/admin/academic/academicSession/AcademicSession';
 import Faculties from '../screens/admin/academic/faculties/Faculties';
 import Curriculum from '../screens/admin/academic/curriculum/Curriculum';
-import Assignment from '../screens/admin/academic/Assignment';
+import Assignment from '../screens/admin/academic/assignment/Assignment';
 import TimetableOption from '../screens/admin/academic/timetable/TimetableOption';
 import EditTimetable from '../screens/admin/academic/timetable/EditTimetble';
 import StudentProfile from '../screens/admin/students/StudentProfile';
@@ -40,6 +40,23 @@ import EditCalendar from '../screens/admin/academic/calendar/EditCalendar';
 import FacultyCourses from '../screens/admin/academic/faculties/FacultyCourses';
 import CurriculumLevel from '../screens/admin/academic/curriculum/CurriculumLevel';
 import CurriculumDetails from '../screens/admin/academic/curriculum/CurriculumDetails';
+import EditCourses from '../screens/admin/academic/curriculum/EditCourses';
+import EditAssignment from '../screens/admin/academic/assignment/EditAssignment';
+import Reception from '../screens/admin/reception/Reception';
+import AdmissionEnquiry from '../screens/admin/reception/AdmissionEnquiry';
+import AdmissionEnquiryDetails from '../screens/admin/reception/AdmissionEnquiryDetails';
+import VisitorLog from '../screens/admin/reception/VisitorLog';
+import CallLog from '../screens/admin/reception/CallLog';
+import Complaint from '../screens/admin/reception/Complaint';
+import EditAdmissionEnquiry from '../screens/admin/reception/EditAdmissionEnquiry';
+import EditVisitorLog from '../screens/admin/reception/EditVisitorLog';
+import Students from '../screens/admin/students/Students';
+import BasicInformation from '../screens/admin/students/BasicInformation';
+import ParentInformation from '../screens/admin/students/ParentInformation';
+import ContactInformation from '../screens/admin/students/ContactInformation';
+import DocumentInformation from '../screens/admin/students/DocumentInformation';
+import ManageFees from '../screens/admin/ManageFees';
+import ManageResults from '../screens/admin/ManageResults';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -83,10 +100,27 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="Faculties" component={Faculties} />
       <Stack.Screen name="Curriculum" component={Curriculum} />
       <Stack.Screen name="Assignment" component={Assignment} />
+      <Stack.Screen name="Students" component={Students} />
       <Stack.Screen name="StudentProfile" component={StudentProfile} />
+      <Stack.Screen name="BasicInformation" component={BasicInformation} />
+      <Stack.Screen name="ParentInformation" component={ParentInformation} />
+      <Stack.Screen name="ContactInformation" component={ContactInformation} />
+      <Stack.Screen name="DocumentInformation" component={DocumentInformation} />
+      <Stack.Screen name="ManageFees" component={ManageFees} />
+      <Stack.Screen name="ManageResults" component={ManageResults} />
       <Stack.Screen name="FacultyCourses" component={FacultyCourses} />
       <Stack.Screen name="CurriculumLevel" component={CurriculumLevel} />
       <Stack.Screen name="CurriculumDetails" component={CurriculumDetails} />
+      <Stack.Screen name="EditCourses" component={EditCourses} />
+      <Stack.Screen name="EditAssignment" component={EditAssignment} />
+      <Stack.Screen name="Reception" component={Reception} />
+      <Stack.Screen name="AdmissionEnquiry" component={AdmissionEnquiry} />
+      <Stack.Screen name="AdmissionEnquiryDetails" component={AdmissionEnquiryDetails} />
+      <Stack.Screen name="EditAdmissionEnquiry" component={EditAdmissionEnquiry} />
+      <Stack.Screen name="VisitorLog" component={VisitorLog} />
+      <Stack.Screen name="EditVisitorLog" component={EditVisitorLog} />
+      <Stack.Screen name="CallLog" component={CallLog} />
+      <Stack.Screen name="Complaint" component={Complaint} />
 
       {/* <Stack.Screen
         name="Receptionist"

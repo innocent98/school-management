@@ -217,7 +217,7 @@ const MyResults = () => {
                         data={tableHead}
                         style={{
                           height: itemHeight * 0.06,
-                          backgroundColor: COLORS.light.tableHeade,
+                          backgroundColor: COLORS.light.tableHead,
                         }}
                         textStyle={{
                           color: COLORS.light.black,

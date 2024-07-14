@@ -43,7 +43,7 @@ import Faculties from '../screens/admin/academic/faculties/Faculties';
 import FacultyCourses from '../screens/admin/academic/faculties/FacultyCourses.tsx';
 import Courses from '../screens/admin/academic/curriculum/Curriculum.js';
 import AcademicSession from '../screens/admin/academic/academicSession/AcademicSession';
-import Assignment from '../screens/admin/academic/Assignment';
+import Assignment from '../screens/admin/academic/assignment/Assignment.js';
 import EditAssignment from '../screens/admin/academic/EditAssignment';
 import ResultDetails from '../screens/admin/results/ResultDetails';
 import ResultAttendance from '../screens/admin/results/ResultAttendance';
@@ -53,7 +53,7 @@ import EditCalendar from '../screens/admin/academic/EditCalendar';
 import Curriculum from '../screens/admin/academic/curriculum/Curriculum.js';
 import CurriculumLevel from '../screens/admin/academic/curriculum/CurriculumLevel.js';
 import CurriculumDetails from '../screens/admin/academic/curriculum/CurriculumDetails.js';
-import EditCourses from '../screens/admin/academic/EditCourses';
+import EditCourses from '../screens/admin/academic/curriculum/EditCourses.js';
 
 const Stack = createStackNavigator();
 

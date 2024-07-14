@@ -63,7 +63,7 @@ const CourseRegistration = () => {
           <Button
             btnText={'Proceed'}
             textColor={COLORS.light.white}
-            buttonColor={COLORS.light.primary}
+            buttonColor={COLORS.light.secondary}
             width={itemWidth * 0.4}
             onPress={() => {}}
           />

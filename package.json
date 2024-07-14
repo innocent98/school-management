@@ -22,7 +22,7 @@
     "moti": "^0.28.1",
     "react": "18.2.0",
     "react-native": "0.74.0",
-    "react-native-date-picker": "^5.0.2",
+    "react-native-date-picker": "^5.0.4",
     "react-native-document-picker": "^9.2.0",
     "react-native-dropdown-select-list": "^2.0.5",
     "react-native-fast-image": "^8.6.3",

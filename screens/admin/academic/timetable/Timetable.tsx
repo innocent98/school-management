@@ -14,7 +14,7 @@ import Button from '../../../../components/widgets/Button';
 import ScreenSizes from '../../../../constants/utils/ScreenSizes';
 
 const Timetable = () => {
-  const {itemWidth, itemHeight} = ScreenSizes();
+  const {itemWidth} = ScreenSizes();
 
   const navigation = useNavigation<NavigationProp>();
 
@@ -46,22 +46,52 @@ const Timetable = () => {
               <View style={style.table}>
                 <View style={style.tableHead}>
                   <Text style={style.tableItem}>Days/Time</Text>
-                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>8:00 - 10:00</Text>
-                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>10:00 - 12:00</Text>
-                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>12:00 - 14:00</Text>
-                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>14:00 - 16:00</Text>
-                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>16:00 - 18:00</Text>
+                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>
+                    8:00 - 10:00
+                  </Text>
+                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>
+                    10:00 - 12:00
+                  </Text>
+                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>
+                    12:00 - 14:00
+                  </Text>
+                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>
+                    14:00 - 16:00
+                  </Text>
+                  <Text style={[style.tableItem, {width: itemWidth * 0.45}]}>
+                    16:00 - 18:00
+                  </Text>
                   <Text style={style.tableItem}>Action</Text>
                 </View>
 
                 {days.map(day => (
                   <View style={style.tableBody} key={day.id}>
                     <Text style={[style.tableItem, {}]}>{day.day}</Text>
-                    <Text style={[style.tableItem, {width: itemWidth * 0.45}]}></Text>
-                    <Text style={[style.tableItem, {width: itemWidth * 0.45}]}></Text>
-                    <Text style={[style.tableItem, {width: itemWidth * 0.45}]}></Text>
-                    <Text style={[style.tableItem, {width: itemWidth * 0.45}]}></Text>
-                    <Text style={[style.tableItem, {width: itemWidth * 0.45}]}></Text>
+                    <Text
+                      style={[
+                        style.tableItem,
+                        {width: itemWidth * 0.45},
+                      ]}></Text>
+                    <Text
+                      style={[
+                        style.tableItem,
+                        {width: itemWidth * 0.45},
+                      ]}></Text>
+                    <Text
+                      style={[
+                        style.tableItem,
+                        {width: itemWidth * 0.45},
+                      ]}></Text>
+                    <Text
+                      style={[
+                        style.tableItem,
+                        {width: itemWidth * 0.45},
+                      ]}></Text>
+                    <Text
+                      style={[
+                        style.tableItem,
+                        {width: itemWidth * 0.45},
+                      ]}></Text>
                     <View style={[style.tableItem, {}]}>
                       <Icon
                         name="edit"

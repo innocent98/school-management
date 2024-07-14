@@ -1,41 +1,32 @@
-import {View, Text, Pressable} from 'react-native';
+import {Pressable} from 'react-native';
 import React from 'react';
 import {style} from '../../constants/style';
 import SmallText from './SmallText';
 
-interface Props {
+type Props = {
   btnText: string;
   textColor: string;
   buttonColor: string;
   width?: number;
   alignItems?: any;
   disabled?: boolean;
-
   onPress: () => void;
-}
+};
 
-const Button: React.FC<Props> = ({
-  buttonColor,
-  btnText,
-  textColor,
-  width,
-  disabled,
-  alignItems,
-  onPress,
-}) => {
+const Button = (props: Props) => {
   return (
     <Pressable
-      onPress={onPress}
-      disabled={disabled || false}
+      onPress={props.onPress}
+      disabled={props.disabled || false}
       style={[
         style.button,
         {
-          backgroundColor: buttonColor,
-          width,
-          alignItems: alignItems || 'center',
+          backgroundColor: props.buttonColor,
+          width: props.width,
+          alignItems: props.alignItems || 'center',
         },
       ]}>
-      <SmallText text={btnText} textColor={textColor} />
+      <SmallText text={props.btnText} textColor={props.textColor} />
     </Pressable>
   );
 };

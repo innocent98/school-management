@@ -1,7 +1,5 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
-import {styles} from '../constants/styles';
 import {style} from '../constants/style';
 
 const LogoBanner = () => {

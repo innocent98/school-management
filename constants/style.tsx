@@ -127,4 +127,9 @@ export const style = StyleSheet.create({
   },
 
   dropdown: {borderColor: COLORS.light.lightgray, color: COLORS.light.black},
+  displayPic: {
+    width: itemWidth * 0.25,
+    height: itemWidth * 0.25,
+    borderRadius: 100
+  },
 });

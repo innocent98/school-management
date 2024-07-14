@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {View, Animated, Pressable} from 'react-native';
 import React from 'react';
 import {style} from '../constants/style';
@@ -36,6 +37,8 @@ const navigationData = [
     path: 'ExamRegistration',
   },
   {id: 10, icon: 'school', text: 'Academic', path: 'Academic'},
+  {id: 11, icon: 'support-agent', text: 'Reception', path: 'Reception'},
+  {id: 12, icon: 'school', text: 'Students Management', path: 'Students'},
 ];
 
 const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {
