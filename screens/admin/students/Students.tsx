@@ -12,8 +12,13 @@ import Input from '../../../components/widgets/Input';
 import Button from '../../../components/widgets/Button';
 import {NavigationProp} from '../../../constants/utils/navigationProp';
 import AddStudent from './AddStudent';
+import SlideAnimation from '../../../components/SlideAnimation';
+import StudentDrawer from '../../../components/StudentDrawer';
+import TopComponent from '../../../components/TopComponent';
 
 const Students = () => {
+  const {slideAnim, slideIn, slideOut} = SlideAnimation();
+
   const {itemWidth} = ScreenSizes();
 
   const navigation = useNavigation<NavigationProp>();
@@ -34,6 +39,9 @@ const Students = () => {
     <SafeAreaView
       style={[style.safeArea, {backgroundColor: COLORS.light.primary}]}>
       <FocusedStatusBar backgroundColor={COLORS.light.primary} />
+
+      <TopComponent slideIn={slideIn} />
+      <StudentDrawer slideAnim={slideAnim} slideOut={slideOut} />
 
       {add && <AddStudent setAdd={setAdd} setIsAdd={setIsAdd} />}
 

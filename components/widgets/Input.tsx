@@ -36,7 +36,7 @@ const Input = (props: Props) => {
         width: props.width,
         color: props.color,
         paddingHorizontal: itemWidth * 0.02,
-        fontFamily: FONTS.regular,
+        fontFamily: FONTS.light,
         backgroundColor: props.backgroundColor,
       }}
     />

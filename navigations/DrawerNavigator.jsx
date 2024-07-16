@@ -15,7 +15,7 @@ import Fees from '../screens/admin/Fees';
 import Hostel from '../screens/admin/Hostel';
 import Reception from '../screens/admin/reception/Reception';
 import Results from '../screens/admin/results/Results';
-import Staffs from '../screens/admin/Staffs';
+import Staffs from '../screens/admin/staffs/Staffs';
 import Students from '../screens/admin/students/Students';
 import Chat from '../screens/student/Chat';
 import CourseRegistration from '../screens/student/CourseRegistration';

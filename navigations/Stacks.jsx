@@ -4,7 +4,7 @@ import MyFees from '../screens/student/fees/MyFees';
 import FeesDetails from '../components/FeesDetails';
 import Messenger from '../components/Messenger';
 import PaymentInfo from '../components/PaymentInfo';
-import StaffProfile from '../screens/admin/StaffProfile';
+import StaffProfile from '../screens/admin/staffs/StaffProfile.js';
 import {RectButton} from 'react-native-gesture-handler';
 import {Text} from 'react-native';
 import {styles} from '../constants/styles';

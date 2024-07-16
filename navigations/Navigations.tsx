@@ -42,4 +42,9 @@ export type ScreenParamLists = {
   ManageFees: {item: object};
   ManageResults: {item: object};
   StudentResult: {item: object};
+  Staffs: undefined;
+  StaffProfile: {item: object};
+  Exams_Records: undefined;
+  ResultDetails: {item: object};
+  ResultAttendance: undefined;
 };

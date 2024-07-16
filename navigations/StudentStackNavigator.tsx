@@ -1,20 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {
-  AcademicNavigator,
-  AttendanceManagementNavigator,
-  ChatNavigator,
-  ExamAndRecordNavigator,
-  FeesManagementNavigator,
-  OnlineExamNavigator,
-  ReceptionNavigator,
-  StaffProfileNavigator,
-  StudentProfileNavigator,
-} from './Stacks';
-import DrawerNavigator from './DrawerNavigator';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Notification from '../components/Notification';
-import DrawerTab from './DrawerTab';
 import Home from '../screens/student/Home';
 import MyFees from '../screens/student/fees/MyFees';
 import FeesDetails from '../components/FeesDetails';
@@ -58,6 +44,11 @@ import DocumentInformation from '../screens/admin/students/DocumentInformation';
 import ManageFees from '../screens/admin/ManageFees';
 import ManageResults from '../screens/admin/ManageResults';
 import StudentResult from '../screens/admin/students/StudentResult';
+import Staffs from '../screens/admin/staffs/Staffs';
+import StaffProfile from '../screens/admin/staffs/StaffProfile';
+import Results from '../screens/admin/results/Results';
+import ResultDetails from '../screens/admin/results/ResultDetails';
+import ResultAttendance from '../screens/admin/results/ResultAttendance';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -106,7 +97,10 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="BasicInformation" component={BasicInformation} />
       <Stack.Screen name="ParentInformation" component={ParentInformation} />
       <Stack.Screen name="ContactInformation" component={ContactInformation} />
-      <Stack.Screen name="DocumentInformation" component={DocumentInformation} />
+      <Stack.Screen
+        name="DocumentInformation"
+        component={DocumentInformation}
+      />
       <Stack.Screen name="ManageFees" component={ManageFees} />
       <Stack.Screen name="ManageResults" component={ManageResults} />
       <Stack.Screen name="StudentResult" component={StudentResult} />
@@ -117,12 +111,23 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="EditAssignment" component={EditAssignment} />
       <Stack.Screen name="Reception" component={Reception} />
       <Stack.Screen name="AdmissionEnquiry" component={AdmissionEnquiry} />
-      <Stack.Screen name="AdmissionEnquiryDetails" component={AdmissionEnquiryDetails} />
-      <Stack.Screen name="EditAdmissionEnquiry" component={EditAdmissionEnquiry} />
+      <Stack.Screen
+        name="AdmissionEnquiryDetails"
+        component={AdmissionEnquiryDetails}
+      />
+      <Stack.Screen
+        name="EditAdmissionEnquiry"
+        component={EditAdmissionEnquiry}
+      />
       <Stack.Screen name="VisitorLog" component={VisitorLog} />
       <Stack.Screen name="EditVisitorLog" component={EditVisitorLog} />
       <Stack.Screen name="CallLog" component={CallLog} />
       <Stack.Screen name="Complaint" component={Complaint} />
+      <Stack.Screen name="Staffs" component={Staffs} />
+      <Stack.Screen name="StaffProfile" component={StaffProfile} />
+      <Stack.Screen name="Exams_Records" component={Results} />
+      <Stack.Screen name="ResultDetails" component={ResultDetails} />
+      <Stack.Screen name="ResultAttendance" component={ResultAttendance} />
 
       {/* <Stack.Screen
         name="Receptionist"
