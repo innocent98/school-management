@@ -11,16 +11,14 @@ import Button from '../../../components/widgets/Button';
 import ScreenSizes from '../../../constants/utils/ScreenSizes';
 import {NavigationProp} from '../../../constants/utils/navigationProp';
 
-type Props = {
-  name: string;
-  code: string;
-  level: string;
+type ParamsProps = {
+  item: {name: string; code: string; level: string};
 };
 
 const StudentProfile = ({route}: any) => {
   const {itemWidth} = ScreenSizes();
 
-  const {item} = route.params;
+  const {item} = route.params as ParamsProps;
   const navigation = useNavigation<NavigationProp>();
 
   return (
@@ -29,7 +27,7 @@ const StudentProfile = ({route}: any) => {
       <FocusedStatusBar backgroundColor={COLORS.light.primary} />
 
       <ScrollView>
-        <View style={style.container}>
+        <View style={[style.container, {gap: SIZES.large}]}>
           <LogoBanner />
 
           <CustomImage imageUrl="https://iss.lk/wp-content/uploads/2021/03/student.jpg" />
@@ -70,13 +68,13 @@ const StudentProfile = ({route}: any) => {
               onPress={() => navigation.navigate('ManageResults', {item})}
             />
             <SmallText text={`Manage Attendance: ${item.name}`} />
-            <SmallText text={`registered Courses: ${item.name}`} />
+            <SmallText text={`Registered Courses: ${item.name}`} />
 
             <View style={{alignSelf: 'center'}}>
               <Button
                 btnText={"Disable Student's portal"}
                 textColor={COLORS.light.white}
-                buttonColor={COLORS.light.secondary}
+                buttonColor={COLORS.light.red}
                 width={itemWidth * 0.7}
                 onPress={() => {}}
               />

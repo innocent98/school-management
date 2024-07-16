@@ -41,4 +41,5 @@ export type ScreenParamLists = {
   DocumentInformation: {item: object};
   ManageFees: {item: object};
   ManageResults: {item: object};
+  StudentResult: {item: object};
 };

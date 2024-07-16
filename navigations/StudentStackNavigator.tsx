@@ -57,6 +57,7 @@ import ContactInformation from '../screens/admin/students/ContactInformation';
 import DocumentInformation from '../screens/admin/students/DocumentInformation';
 import ManageFees from '../screens/admin/ManageFees';
 import ManageResults from '../screens/admin/ManageResults';
+import StudentResult from '../screens/admin/students/StudentResult';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -108,6 +109,7 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="DocumentInformation" component={DocumentInformation} />
       <Stack.Screen name="ManageFees" component={ManageFees} />
       <Stack.Screen name="ManageResults" component={ManageResults} />
+      <Stack.Screen name="StudentResult" component={StudentResult} />
       <Stack.Screen name="FacultyCourses" component={FacultyCourses} />
       <Stack.Screen name="CurriculumLevel" component={CurriculumLevel} />
       <Stack.Screen name="CurriculumDetails" component={CurriculumDetails} />

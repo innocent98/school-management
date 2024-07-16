@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {View, Animated, Pressable} from 'react-native';
+import {View, Animated, Pressable, ScrollView} from 'react-native';
 import React from 'react';
 import {style} from '../constants/style';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -60,21 +60,24 @@ const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {
         onPress={slideOut}
       />
 
-      <View style={[style.column, {alignItems: 'flex-start', gap: SIZES.base}]}>
-        {navigationData.map(item => (
-          <Pressable
-            key={item.id}
-            style={style.drawerItem}
-            onPress={() => handleNavigation(item.path)}>
-            <MaterialIcons
-              name={item.icon}
-              size={SIZES.xl}
-              color={COLORS.light.primary}
-            />
-            <MediumText text={item.text} textColor={COLORS.light.primary} />
-          </Pressable>
-        ))}
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={[style.column, {alignItems: 'flex-start', gap: SIZES.base}]}>
+          {navigationData.map(item => (
+            <Pressable
+              key={item.id}
+              style={style.drawerItem}
+              onPress={() => handleNavigation(item.path)}>
+              <MaterialIcons
+                name={item.icon}
+                size={SIZES.xl}
+                color={COLORS.light.primary}
+              />
+              <MediumText text={item.text} textColor={COLORS.light.primary} />
+            </Pressable>
+          ))}
+        </View>
+      </ScrollView>
     </Animated.View>
   );
 };
