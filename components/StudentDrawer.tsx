@@ -41,6 +41,8 @@ const navigationData = [
   {id: 12, icon: 'school', text: 'Students Management', path: 'Students'},
   {id: 13, icon: 'people', text: 'Staffs Management', path: 'Staffs'},
   {id: 14, icon: 'bar-chart', text: 'Exams & Records', path: 'Exams_Records'},
+  {id: 15, icon: 'account-balance-wallet', text: 'Fees Management', path: 'Fees'},
+  {id: 16, icon: 'poll', text: 'Attendance Management', path: 'Attendance'},
 ];
 
 const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {

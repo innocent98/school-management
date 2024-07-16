@@ -47,4 +47,11 @@ export type ScreenParamLists = {
   Exams_Records: undefined;
   ResultDetails: {item: object};
   ResultAttendance: undefined;
+  Fees: undefined;
+  FeesStatus: {item: object};
+  Attendance: undefined;
+  StudentAttendance: undefined;
+  StudentExamAttendance: undefined;
+  TakeClassAttendance: undefined;
+  TakeExamAttendance: undefined;
 };

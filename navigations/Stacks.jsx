@@ -8,7 +8,7 @@ import StaffProfile from '../screens/admin/staffs/StaffProfile.js';
 import {RectButton} from 'react-native-gesture-handler';
 import {Text} from 'react-native';
 import {styles} from '../constants/styles';
-import FeesStatus from '../screens/admin/FeesStatus';
+import FeesStatus from '../screens/admin/fees/FeesStatus.js';
 import ManageFees from '../screens/admin/ManageFees';
 import ManageResults from '../screens/admin/ManageResults';
 import StudentAttendance from '../screens/admin/attendance/StudentAttendance';

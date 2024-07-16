@@ -11,7 +11,7 @@ import {userRequest} from '../redux/requestMethod';
 import Academic from '../screens/admin/academic/Academic';
 import AttendanceOption from '../screens/admin/attendance/AttendanceOption';
 import Exam from '../screens/admin/exam/Exam';
-import Fees from '../screens/admin/Fees';
+import Fees from '../screens/admin/fees/Fees';
 import Hostel from '../screens/admin/Hostel';
 import Reception from '../screens/admin/reception/Reception';
 import Results from '../screens/admin/results/Results';
