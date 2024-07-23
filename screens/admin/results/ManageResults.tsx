@@ -1,12 +1,12 @@
 import {View, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {COLORS, results, SIZES} from '../../constants';
-import FocusedStatusBar from '../../components/FocusedStatusBar';
-import LogoBanner from '../../components/LogoBanner';
-import {style} from '../../constants/style';
-import SmallText from '../../components/widgets/SmallText';
-import {NavigationProp} from '../../constants/utils/navigationProp';
+import {COLORS, results, SIZES} from '../../../constants';
+import FocusedStatusBar from '../../../components/FocusedStatusBar';
+import LogoBanner from '../../../components/LogoBanner';
+import {style} from '../../../constants/style';
+import SmallText from '../../../components/widgets/SmallText';
+import {NavigationProp} from '../../../constants/utils/navigationProp';
 
 const ManageResults = () => {
   const navigation = useNavigation<NavigationProp>();

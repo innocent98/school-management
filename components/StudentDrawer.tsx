@@ -1,20 +1,16 @@
-/* eslint-disable react-native/no-inline-styles */
 import {View, Animated, Pressable, ScrollView} from 'react-native';
 import React from 'react';
 import {style} from '../constants/style';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {COLORS, SIZES} from '../constants';
 import MediumText from './widgets/MediumText';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {ScreenParamLists} from '../navigations/Navigations';
 import {useNavigation} from '@react-navigation/native';
+import {NavigationProp} from '../constants/utils/navigationProp';
 
-type NavigationProp = StackNavigationProp<ScreenParamLists>;
-
-interface Props {
+type Props = {
   slideAnim: Animated.Value;
   slideOut: () => void;
-}
+};
 
 const navigationData = [
   {id: 1, icon: 'dashboard', text: 'Home', path: 'Home'},
@@ -41,27 +37,39 @@ const navigationData = [
   {id: 12, icon: 'school', text: 'Students Management', path: 'Students'},
   {id: 13, icon: 'people', text: 'Staffs Management', path: 'Staffs'},
   {id: 14, icon: 'bar-chart', text: 'Exams & Records', path: 'Exams_Records'},
-  {id: 15, icon: 'account-balance-wallet', text: 'Fees Management', path: 'Fees'},
+  {
+    id: 15,
+    icon: 'account-balance-wallet',
+    text: 'Fees Management',
+    path: 'Fees',
+  },
   {id: 16, icon: 'poll', text: 'Attendance Management', path: 'Attendance'},
+  {
+    id: 17,
+    icon: 'post-add',
+    text: 'Online Examination Management',
+    path: 'Exam',
+  },
+  {id: 18, icon: 'apartment', text: 'Hostel Management', path: 'Hostel'},
 ];
 
-const StudentDrawer: React.FC<Props> = ({slideAnim, slideOut}) => {
+const StudentDrawer = (props: Props) => {
   const navigation = useNavigation<NavigationProp>();
 
   const handleNavigation = (to: any) => {
-    slideOut();
+    props.slideOut();
     navigation.navigate(to);
   };
 
   return (
     <Animated.View
-      style={[style.drawer, {transform: [{translateX: slideAnim}]}]}>
+      style={[style.drawer, {transform: [{translateX: props.slideAnim}]}]}>
       <MaterialIcons
         name="close"
         color={COLORS.light.secondary}
         size={SIZES.xl}
         style={{position: 'absolute', right: -30}}
-        onPress={slideOut}
+        onPress={props.slideOut}
       />
 
       <ScrollView showsVerticalScrollIndicator={false}>

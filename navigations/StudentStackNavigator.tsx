@@ -41,8 +41,8 @@ import BasicInformation from '../screens/admin/students/BasicInformation';
 import ParentInformation from '../screens/admin/students/ParentInformation';
 import ContactInformation from '../screens/admin/students/ContactInformation';
 import DocumentInformation from '../screens/admin/students/DocumentInformation';
-import ManageFees from '../screens/admin/ManageFees';
-import ManageResults from '../screens/admin/ManageResults';
+import ManageFees from '../screens/admin/fees/ManageFees';
+import ManageResults from '../screens/admin/results/ManageResults';
 import StudentResult from '../screens/admin/students/StudentResult';
 import Staffs from '../screens/admin/staffs/Staffs';
 import StaffProfile from '../screens/admin/staffs/StaffProfile';
@@ -57,6 +57,9 @@ import StudentExamAttendance from '../screens/admin/attendance/StudentExamAttend
 import TakeClassAttendance from '../screens/admin/attendance/TakeClassAttendance';
 import TakeExamAttendance from '../screens/admin/attendance/TakeExamAttendance';
 import AttendanceWeeks from '../screens/admin/attendance/AttendanceWeeks';
+import Exam from '../screens/admin/exam/Exam';
+import ExamEditor from '../screens/admin/exam/ExamEditor';
+import Hostel from '../screens/admin/Hostel';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -144,6 +147,9 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="TakeClassAttendance" component={TakeClassAttendance} />
       <Stack.Screen name="TakeExamAttendance" component={TakeExamAttendance} />
       <Stack.Screen name="AttendanceWeeks" component={AttendanceWeeks} />
+      <Stack.Screen name="Exam" component={Exam} />
+      <Stack.Screen name="ExamEditor" component={ExamEditor} />
+      <Stack.Screen name="Hostel" component={Hostel} />
 
       {/* <Stack.Screen
         name="Receptionist"

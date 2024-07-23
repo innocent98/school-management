@@ -45,7 +45,7 @@ const TakeExamAttendance = ({route}: any) => {
               color={COLORS.light.white}
             />
 
-            <SmallText text="Tap icon to take student attendance" />
+            <SmallText text="Select icon to take student attendance" />
 
             {/* table */}
             <View style={style.card}>

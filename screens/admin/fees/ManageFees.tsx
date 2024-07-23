@@ -1,13 +1,12 @@
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
-import {RectButton} from 'react-native-gesture-handler';
-import {COLORS, feesList, SIZES} from '../../constants';
+import {COLORS, feesList, SIZES} from '../../../constants';
 import {useNavigation} from '@react-navigation/native';
-import FocusedStatusBar from '../../components/FocusedStatusBar';
-import LogoBanner from '../../components/LogoBanner';
-import {style} from '../../constants/style';
-import Input from '../../components/widgets/Input';
-import ScreenSizes from '../../constants/utils/ScreenSizes';
+import FocusedStatusBar from '../../../components/FocusedStatusBar';
+import LogoBanner from '../../../components/LogoBanner';
+import {style} from '../../../constants/style';
+import Input from '../../../components/widgets/Input';
+import ScreenSizes from '../../../constants/utils/ScreenSizes';
 
 const ManageFees = () => {
   const {itemWidth} = ScreenSizes();
