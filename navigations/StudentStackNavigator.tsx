@@ -56,6 +56,7 @@ import StudentAttendance from '../screens/admin/attendance/StudentAttendance';
 import StudentExamAttendance from '../screens/admin/attendance/StudentExamAttendance';
 import TakeClassAttendance from '../screens/admin/attendance/TakeClassAttendance';
 import TakeExamAttendance from '../screens/admin/attendance/TakeExamAttendance';
+import AttendanceWeeks from '../screens/admin/attendance/AttendanceWeeks';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -142,6 +143,7 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="StudentExamAttendance" component={StudentExamAttendance} />
       <Stack.Screen name="TakeClassAttendance" component={TakeClassAttendance} />
       <Stack.Screen name="TakeExamAttendance" component={TakeExamAttendance} />
+      <Stack.Screen name="AttendanceWeeks" component={AttendanceWeeks} />
 
       {/* <Stack.Screen
         name="Receptionist"

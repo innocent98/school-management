@@ -52,6 +52,7 @@ export type ScreenParamLists = {
   Attendance: undefined;
   StudentAttendance: undefined;
   StudentExamAttendance: undefined;
-  TakeClassAttendance: undefined;
-  TakeExamAttendance: undefined;
+  TakeClassAttendance: {item: object};
+  TakeExamAttendance: {item: object};
+  AttendanceWeeks: {item: object};
 };

@@ -29,7 +29,7 @@ export const style = StyleSheet.create({
     borderRadius: SIZES.base,
     padding: SIZES.small,
     borderWidth: 1,
-    borderColor: COLORS.light.gray,
+    borderColor: COLORS.light.lightgray,
     gap: SIZES.base,
   },
 
