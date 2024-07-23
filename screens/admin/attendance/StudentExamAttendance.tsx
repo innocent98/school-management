@@ -4,14 +4,14 @@ import {useNavigation} from '@react-navigation/native';
 import {courseList} from '../../../constants/dummy';
 import FocusedStatusBar from '../../../components/FocusedStatusBar';
 import LogoBanner from '../../../components/LogoBanner';
-import {COLORS, SIZES} from '../../../constants';
-import {style} from '../../../constants/style';
 import Input from '../../../components/widgets/Input';
 import SmallText from '../../../components/widgets/SmallText';
+import {COLORS, SIZES} from '../../../constants';
+import {style} from '../../../constants/style';
 import ScreenSizes from '../../../constants/utils/ScreenSizes';
 import {NavigationProp} from '../../../constants/utils/navigationProp';
 
-const StudentAttendance = () => {
+const StudentExamAttendance = () => {
   const {itemWidth} = ScreenSizes();
 
   const navigation = useNavigation<NavigationProp>();
@@ -34,7 +34,7 @@ const StudentAttendance = () => {
               color={COLORS.light.white}
             />
 
-            <SmallText text="Continue to take class attendance" />
+            <SmallText text="Continue to take exam attendance" />
 
             <View
               style={[
@@ -51,7 +51,7 @@ const StudentAttendance = () => {
                   text={course.code}
                   textAlign={'left'}
                   onPress={() =>
-                    navigation.navigate('AttendanceWeeks', {item: course})
+                    navigation.navigate('TakeExamAttendance', {item: course})
                   }
                   key={course.id}
                 />
@@ -64,4 +64,4 @@ const StudentAttendance = () => {
   );
 };
 
-export default StudentAttendance;
+export default StudentExamAttendance;

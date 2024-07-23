@@ -1,9 +1,8 @@
 import {View} from 'react-native';
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {styles} from '../../../constants/styles';
 import {style} from '../../../constants/style';
-import {SIZES} from '../../../constants';
+import {COLORS, SIZES} from '../../../constants';
 
 type Props = {
   isPresent: boolean;
@@ -22,7 +21,7 @@ const AttendanceWeek = (props: Props) => {
         ]}
         name="done"
         size={16}
-        color={props.isPresent ? 'teal' : '#000'}
+        color={props.isPresent ? COLORS.light.success : '#b1b1b1'}
       />
       <MaterialIcons
         style={[
@@ -31,7 +30,7 @@ const AttendanceWeek = (props: Props) => {
         ]}
         name="close"
         size={16}
-        color={props.isPresent === false ? 'red' : '#000'}
+        color={!props.isPresent ? 'red' : '#b1b1b1'}
       />
     </View>
   );
