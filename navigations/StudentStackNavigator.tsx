@@ -3,8 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from '../screens/student/Home';
 import MyFees from '../screens/student/fees/MyFees';
-import FeesDetails from '../components/FeesDetails';
-import PaymentInfo from '../components/PaymentInfo';
+import FeesDetails from '../screens/student/fees/FeesDetails';
+import PaymentInfo from '../screens/student/fees/PaymentInfo';
 import Profile from '../screens/student/Profile';
 import MyCourse from '../screens/student/MyCourse';
 import MyResults from '../screens/student/MyResults';
@@ -60,6 +60,11 @@ import AttendanceWeeks from '../screens/admin/attendance/AttendanceWeeks';
 import Exam from '../screens/admin/exam/Exam';
 import ExamEditor from '../screens/admin/exam/ExamEditor';
 import Hostel from '../screens/admin/Hostel';
+import Chat from '../screens/chat/Chat';
+import Messenger from '../screens/chat/Messenger';
+import SchoolSelection from '../screens/schoolSelection/SchoolSelection';
+import FindSchool from '../screens/schoolSelection/FindSchool';
+import Notification from '../components/Notification';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -82,6 +87,8 @@ const StudentStackNavigator = () => {
           },
         }),
       }}>
+      <Stack.Screen name="SchoolSelection" component={SchoolSelection} />
+      <Stack.Screen name="FindSchool" component={FindSchool} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="MyCourse" component={MyCourse} />
@@ -143,13 +150,22 @@ const StudentStackNavigator = () => {
       <Stack.Screen name="FeesStatus" component={FeesStatus} />
       <Stack.Screen name="Attendance" component={AttendanceOption} />
       <Stack.Screen name="StudentAttendance" component={StudentAttendance} />
-      <Stack.Screen name="StudentExamAttendance" component={StudentExamAttendance} />
-      <Stack.Screen name="TakeClassAttendance" component={TakeClassAttendance} />
+      <Stack.Screen
+        name="StudentExamAttendance"
+        component={StudentExamAttendance}
+      />
+      <Stack.Screen
+        name="TakeClassAttendance"
+        component={TakeClassAttendance}
+      />
       <Stack.Screen name="TakeExamAttendance" component={TakeExamAttendance} />
       <Stack.Screen name="AttendanceWeeks" component={AttendanceWeeks} />
       <Stack.Screen name="Exam" component={Exam} />
       <Stack.Screen name="ExamEditor" component={ExamEditor} />
       <Stack.Screen name="Hostel" component={Hostel} />
+      <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen name="Messenger" component={Messenger} />
+      <Stack.Screen name="Notification" component={Notification} />
 
       {/* <Stack.Screen
         name="Receptionist"

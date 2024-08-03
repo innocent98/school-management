@@ -1,36 +1,30 @@
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
 import {style} from '../../constants/style';
 import {COLORS} from '../../constants';
 import {FONTS} from '../../constants/theme';
 
-interface Props {
+type Props = {
   text: string;
   textColor?: string;
   textAlign?: any;
   fontFamily?: string;
   onPress?: () => void;
-}
+};
 
-const MediumText: React.FC<Props> = ({
-  text,
-  textColor,
-  textAlign,
-  fontFamily,
-  onPress,
-}) => {
+const MediumText = (props: Props) => {
   return (
     <Text
       style={[
         style.mediumText,
         {
-          color: textColor || COLORS.light.white,
-          textAlign: textAlign || 'center',
-          fontFamily: fontFamily || FONTS.bold,
+          color: props.textColor || COLORS.light.white,
+          textAlign: props.textAlign || 'center',
+          fontFamily: props.fontFamily || FONTS.bold,
         },
       ]}
-      onPress={onPress}>
-      {text}
+      onPress={props.onPress}>
+      {props.text}
     </Text>
   );
 };

@@ -1,8 +1,4 @@
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {View, SafeAreaView, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {COLORS} from '../../../constants';
@@ -72,9 +68,23 @@ const ELibrary = () => {
               setSelected={(value: any) => setSelected(value)}
               data={data}
               save="value"
-              inputStyles={{color: COLORS.light.black}}
-              dropdownTextStyles={{color: COLORS.light.black}}
-              fontFamily={FONTS.regular}
+              placeholder="Select Option"
+              inputStyles={{
+                width: itemWidth * 0.9,
+                borderRadius: 20,
+                color: COLORS.light.black,
+              }}
+              dropdownTextStyles={{
+                width: itemWidth * 0.9,
+                borderRadius: 20,
+                color: COLORS.light.black,
+              }}
+              boxStyles={{
+                width: itemWidth * 0.9,
+                borderColor: COLORS.light.soft,
+              }}
+              dropdownStyles={style.dropdown}
+              search={false}
             />
             {/* asset cards */}
             <View style={[style.row, {flexWrap: 'wrap'}]}>

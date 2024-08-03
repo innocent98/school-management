@@ -1,12 +1,13 @@
 import {View, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
-import {COLORS} from '../constants';
-import {style} from '../constants/style';
-import FocusedStatusBar from './FocusedStatusBar';
-import MediumText from './widgets/MediumText';
-import SmallText from './widgets/SmallText';
-import ScreenSizes from '../constants/utils/ScreenSizes';
-import {FONTS} from '../constants/theme';
+import {COLORS} from '../../../constants';
+import {style} from '../../../constants/style';
+import FocusedStatusBar from '../../../components/FocusedStatusBar';
+import MediumText from '../../../components/widgets/MediumText';
+import SmallText from '../../../components/widgets/SmallText';
+import ScreenSizes from '../../../constants/utils/ScreenSizes';
+import {FONTS, SIZES} from '../../../constants/theme';
+import LogoBanner from '../../../components/LogoBanner';
 
 const PaymentInfo = () => {
   const {itemWidth, itemHeight} = ScreenSizes();
@@ -18,7 +19,13 @@ const PaymentInfo = () => {
 
       <ScrollView>
         <View style={style.container}>
-          <View style={[style.column, {alignItems: 'flex-start'}]}>
+          <LogoBanner />
+
+          <View
+            style={[
+              style.column,
+              {alignItems: 'flex-start', marginTop: SIZES.xl},
+            ]}>
             <MediumText text="Payment Infomation" />
 
             <View

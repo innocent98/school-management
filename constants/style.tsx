@@ -127,10 +127,48 @@ export const style = StyleSheet.create({
   },
 
   dropdown: {borderColor: COLORS.light.lightgray, color: COLORS.light.black},
-  
+
   displayPic: {
-    width: itemWidth * 0.25,
-    height: itemWidth * 0.25,
-    borderRadius: 100
+    width: itemWidth * 0.2,
+    height: itemWidth * 0.2,
+    borderRadius: 100,
+  },
+
+  profilePic: {
+    width: itemWidth * 0.07,
+    height: itemWidth * 0.07,
+    borderRadius: 100,
+  },
+
+  chatDp: {
+    width: itemWidth * 0.12,
+    height: itemWidth * 0.12,
+    borderRadius: 100,
+  },
+
+  badge: {
+    backgroundColor: COLORS.light.secondary,
+    position: 'absolute',
+    top: -4,
+    right: 0,
+    width: SIZES.small,
+    height: SIZES.small,
+    borderRadius: 50,
+  },
+
+  senderMessageCard: {
+    width: itemWidth * 0.65,
+    padding: SIZES.small,
+    backgroundColor: COLORS.light.secondary,
+    borderRadius: 12,
+    borderTopRightRadius: 0,
+  },
+
+  receiverMessageCard: {
+    width: itemWidth * 0.65,
+    padding: SIZES.small,
+    backgroundColor: COLORS.light.soft,
+    borderRadius: 12,
+    borderTopLeftRadius: 0,
   },
 });

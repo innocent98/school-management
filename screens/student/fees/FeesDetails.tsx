@@ -7,17 +7,17 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {COLORS, list, SHADOWS, SIZES} from '../constants';
+import {COLORS, list, SHADOWS, SIZES} from '../../../constants';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {Logo} from '../screens/student/Home';
-import {style} from '../constants/style';
-import LogoBanner from './LogoBanner';
-import FocusedStatusBar from './FocusedStatusBar';
-import MediumText from './widgets/MediumText';
-import SmallText from './widgets/SmallText';
-import Button from './widgets/Button';
-import ScreenSizes from '../constants/utils/ScreenSizes';
+import {Logo} from '../Home';
+import {style} from '../../../constants/style';
+import LogoBanner from '../../../components/LogoBanner';
+import FocusedStatusBar from '../../../components/FocusedStatusBar';
+import MediumText from '../../../components/widgets/MediumText';
+import SmallText from '../../../components/widgets/SmallText';
+import Button from '../../../components/widgets/Button';
+import ScreenSizes from '../../../constants/utils/ScreenSizes';
 
 export const DetailLists = ({data}: any) => {
   const navigation = useNavigation();

@@ -17,7 +17,7 @@ import Reception from '../screens/admin/reception/Reception';
 import Results from '../screens/admin/results/Results';
 import Staffs from '../screens/admin/staffs/Staffs';
 import Students from '../screens/admin/students/Students';
-import Chat from '../screens/student/Chat';
+import Chat from '../screens/chat/Chat';
 import CourseRegistration from '../screens/student/CourseRegistration';
 import ELibrary from '../screens/student/e-library/E-Library';
 import ExamRegistration from '../screens/student/ExamRegistration';

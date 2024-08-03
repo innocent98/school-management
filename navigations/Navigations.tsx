@@ -58,4 +58,8 @@ export type ScreenParamLists = {
   Exam: undefined;
   ExamEditor: undefined;
   Hostel: undefined;
+  Chat: undefined;
+  Messenger: undefined;
+  FindSchool: undefined;
+  Notification: undefined;
 };
