@@ -12,6 +12,12 @@ const StudentSchema = new mongoose.Schema({
   enrollmentId: { type: String },
 });
 
+const StaffSchema = new mongoose.Schema({
+  fullname: { type: String },
+  email: { type: String },
+  role: { type: String },
+});
+
 const SchoolSchema = new mongoose.Schema(
   {
     lastName: { type: String, required: true },
@@ -29,6 +35,8 @@ const SchoolSchema = new mongoose.Schema(
     contactInfo: { type: ContactInfoSchema, default: {} },
     students: { type: [StudentSchema], default: [] },
     studentIds: { type: Array, default: [] },
+    staffs: { type: [StaffSchema], default: [] },
+    staffIds: { type: Array, default: [] },
   },
   { timestamps: true }
 );
