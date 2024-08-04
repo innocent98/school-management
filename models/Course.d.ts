@@ -5,6 +5,9 @@ type Course = {
   courseTitle: string;
   courseCode: string;
   courseUnits: string;
+  lectInCharge: string;
+  facultyName: string;
+  deptName: string;
 };
 
 type CourseModel = Model<Course>;

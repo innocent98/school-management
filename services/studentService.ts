@@ -8,24 +8,26 @@ const createStudentService = async (studentInfo: studentReg) => {
 };
 
 const findStudentsService = async (query: any, page: any, pageSize: number) => {
-  const student = await Student.find(query)
+  const students = await Student.find(query)
     .sort({ lastName: 1, otherNames: 1 })
-    .select({ password: 0 })
+    .select({ password: 0, updatedAt: 0 })
     .skip((parseInt(page) - 1) * pageSize)
     .limit(pageSize)
     .exec();
-  return student;
+  return students;
 };
 
 const findStudentService = async (props: object) => {
   const student = await Student.findOne(props)
-    .select({ password: 0 })
+    .select({ password: 0, updatedAt: 0 })
     .exec();
   return student;
 };
 
 const findStudentIdService = async (id: string) => {
-  const student = await Student.findById(id).select({ password: 0 }).exec();
+  const student = await Student.findById(id)
+    .select({ password: 0, updatedAt: 0 })
+    .exec();
   return student;
 };
 
