@@ -12,6 +12,12 @@ type Students = {
   enrollmentId: string;
 };
 
+type Staffs = {
+  fullname: string;
+  email: string;
+  role: string;
+};
+
 type School = {
   lastName: string;
   otherNames: string;
@@ -28,6 +34,8 @@ type School = {
   contactInfo?: ContactInfo;
   students?: Students[];
   studentIds?: string[];
+  staffs?: Staffs[];
+  staffIds?: string[];
 };
 
 type SchoolModel = Model<School>;

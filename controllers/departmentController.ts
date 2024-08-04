@@ -2,15 +2,15 @@ import { Request, Response } from "express";
 import { connectionError, not_allowed, success } from "../utils/messages";
 import { findSchoolIdService } from "../services/schoolService";
 import {
-  createFacultyService,
-  findSchoolFacultiesService,
-} from "../services/facultyService";
-import Faculty from "../models/Faculty";
+  createDepartmentService,
+  findSchoolDeptService,
+} from "../services/departmentService";
+import Department from "../models/Department";
 
-const createFacultyController = async (req: Request | any, res: Response) => {
+const createDeptController = async (req: Request | any, res: Response) => {
   try {
     const { id } = req.user;
-    const { facultyName } = req.body;
+    const { deptName, facultyName } = req.body;
 
     const school = await findSchoolIdService(id);
 
@@ -18,8 +18,9 @@ const createFacultyController = async (req: Request | any, res: Response) => {
       return res.status(400).json({ message: not_allowed });
     }
 
-    await createFacultyService({
+    await createDepartmentService({
       schoolName: school.schoolName,
+      deptName,
       facultyName,
     });
 
@@ -29,7 +30,7 @@ const createFacultyController = async (req: Request | any, res: Response) => {
   }
 };
 
-const findSchoolFacultiesController = async (req: Request, res: Response) => {
+const findSchoolDeptController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const school = await findSchoolIdService(id);
@@ -47,11 +48,11 @@ const findSchoolFacultiesController = async (req: Request, res: Response) => {
       return res.status(400).json({ message: not_allowed });
     }
 
-    const faculties = await findSchoolFacultiesService({
+    const depts = await findSchoolDeptService({
       schoolName: school.schoolName,
     });
 
-    totalRecords = await Faculty.countDocuments({
+    totalRecords = await Department.countDocuments({
       schoolName: school.schoolName,
     });
     totalPages = Math.ceil(totalRecords / pageSize);
@@ -60,7 +61,7 @@ const findSchoolFacultiesController = async (req: Request, res: Response) => {
       totalPages,
       currentPage,
       length: totalRecords,
-      faculties,
+      depts,
     };
 
     res.status(200).json({ data: response });
@@ -69,4 +70,4 @@ const findSchoolFacultiesController = async (req: Request, res: Response) => {
   }
 };
 
-export { createFacultyController, findSchoolFacultiesController };
+export { createDeptController, findSchoolDeptController };

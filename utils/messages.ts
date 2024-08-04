@@ -46,5 +46,6 @@ export const user_not_found =
 export const not_belong_to_school =
   "You are not a student of the school you are accessing, please check your school name and try again.";
 
-export const success_course_reg =
-  "Course successfully registered";
+export const success_course_reg = "Course successfully registered";
+
+export const success = 'Successful.'

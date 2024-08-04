@@ -29,11 +29,24 @@ export type studentReg = {
   idCard?: string;
 };
 
+export type staffReg = {
+  school: string;
+  fullName: string;
+  email: string;
+  password: string;
+  role: string;
+  phone?: string;
+  address?: string;
+};
+
 export type courseReg = {
   schoolName: string;
   courseTitle: string;
   courseCode: string;
   courseUnits: string;
+  lectInCharge: string;
+  facultyName: string;
+  deptName: string;
 };
 
 export type studentCourseReg = {
@@ -45,5 +58,11 @@ export type studentCourseReg = {
 
 export type facultyReg = {
   schoolName: string;
+  facultyName: string;
+};
+
+export type deptReg = {
+  schoolName: string;
+  deptName: string;
   facultyName: string;
 };
