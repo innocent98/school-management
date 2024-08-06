@@ -48,4 +48,18 @@ export const not_belong_to_school =
 
 export const success_course_reg = "Course successfully registered";
 
-export const success = 'Successful.'
+export const course_not_found = "Course not found";
+
+export const project_created = "Project created successfully!";
+
+export const project_not_found = "Project not found.";
+
+export const student_not_found = "Student not found.";
+
+export const staff_not_found = "Staff not found.";
+
+export const exams_and_records_created = "Exams and Records created successfully!"
+
+export const success = "Successful.";
+
+export const failure = "Failed.";

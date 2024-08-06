@@ -66,3 +66,24 @@ export type deptReg = {
   deptName: string;
   facultyName: string;
 };
+
+type ProjectTopic = {
+  projectTopic: string;
+  isApproved: boolean;
+  projectType: string;
+};
+
+export type projectReg = {
+  schoolName: string;
+  studentName: string;
+  projectTopic: ProjectTopic[];
+  startDate?: Date;
+  endDate?: Date;
+};
+
+export type examsAndRecordsReg = {
+  school: string;
+  semester_session: string;
+  students?: string[];
+  courses?: string[];
+};

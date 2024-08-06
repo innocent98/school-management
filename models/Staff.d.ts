@@ -1,11 +1,18 @@
 import { Model } from "mongoose";
 
+type StaffRole =
+  | "admin"
+  | "lecturer"
+  | "bursar"
+  | "admission officer"
+  | "other staff";
+
 type Staff = {
   school: string;
   fullName: string;
   email: string;
   password: string;
-  role: string;
+  role: StaffRole;
   phone?: string;
   address?: string;
 };
