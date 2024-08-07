@@ -8,8 +8,8 @@ import {
   not_allowed,
   success_course_reg,
 } from "../utils/messages";
-import { findSchoolIdService } from "../services/schoolService";
 import Course from "../models/Course";
+import { findStaffIdService } from "../services/staffService";
 
 const createCourseController = async (req: Request | any, res: Response) => {
   try {
@@ -23,14 +23,13 @@ const createCourseController = async (req: Request | any, res: Response) => {
       deptName,
     } = req.body;
 
-    const school = await findSchoolIdService(id);
-
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     await createCourseService({
-      schoolName: school.schoolName,
+      school: staff.school,
       courseTitle,
       courseCode,
       courseUnits,
@@ -45,10 +44,12 @@ const createCourseController = async (req: Request | any, res: Response) => {
   }
 };
 
-const findSchoolCoursesController = async (req: Request, res: Response) => {
+const findSchoolCoursesController = async (
+  req: Request | any,
+  res: Response
+) => {
   try {
-    const { id } = req.params;
-    const school = await findSchoolIdService(id);
+    const { id } = req.user;
 
     // Pagination parameters
     const { query, page } = req.query as any;
@@ -59,17 +60,16 @@ const findSchoolCoursesController = async (req: Request, res: Response) => {
     let totalPages: number;
     const currentPage: number = parseInt(page) || 1;
 
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     const courses = await findSchoolCoursesService({
-      schoolName: school.schoolName,
+      school: staff.school,
     });
 
-    totalRecords = await Course.countDocuments({
-      schoolName: school.schoolName,
-    });
+    totalRecords = await Course.countDocuments({ school: staff.school });
     totalPages = Math.ceil(totalRecords / pageSize);
 
     const response = {

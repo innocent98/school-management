@@ -40,29 +40,30 @@ export type staffReg = {
 };
 
 export type courseReg = {
-  schoolName: string;
+  school: string;
   courseTitle: string;
   courseCode: string;
   courseUnits: string;
   lectInCharge: string;
-  facultyName: string;
-  deptName: string;
+  faculty: string;
+  dept: string;
 };
 
 export type studentCourseReg = {
-  studentId: string;
+  student: string;
+  school: string;
   courseTitle: string;
   courseCode: string;
   courseUnits: string;
 };
 
 export type facultyReg = {
-  schoolName: string;
+  school: string;
   facultyName: string;
 };
 
 export type deptReg = {
-  schoolName: string;
+  school: string;
   deptName: string;
   facultyName: string;
 };
@@ -74,8 +75,8 @@ type ProjectTopic = {
 };
 
 export type projectReg = {
-  schoolName: string;
-  studentName: string;
+  school: string;
+  student: string;
   projectTopic: ProjectTopic[];
   startDate?: Date;
   endDate?: Date;

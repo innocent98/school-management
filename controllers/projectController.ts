@@ -19,8 +19,8 @@ const createProjectController = async (req: Request | any, res: Response) => {
     }
 
     await createProjectService({
-      schoolName: student.school,
-      studentName: `${student.lastName} ${student.otherNames}`,
+      school: student.school,
+      student: `${student.lastName} ${student.otherNames}`,
       projectTopic,
       startDate,
       endDate,

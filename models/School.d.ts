@@ -5,19 +5,6 @@ type ContactInfo = {
   contactPhone: string;
 };
 
-type Students = {
-  lastName: string;
-  otherNames: string;
-  email: string;
-  enrollmentId: string;
-};
-
-type Staffs = {
-  fullname: string;
-  email: string;
-  role: string;
-};
-
 type School = {
   lastName: string;
   otherNames: string;
@@ -32,10 +19,8 @@ type School = {
   schoolPhone: string;
   noOfSearch?: number;
   contactInfo?: ContactInfo;
-  students?: Students[];
-  studentIds?: string[];
-  staffs?: Staffs[];
-  staffIds?: string[];
+  students?: string[];
+  staffs?: string[];
 };
 
 type SchoolModel = Model<School>;

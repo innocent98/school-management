@@ -7,8 +7,8 @@ type ProjectTopic = {
 };
 
 type Project = {
-  schoolName: string;
-  studentName: string;
+  school: string;
+  student: string;
   projectTopic: ProjectTopic[];
   startDate?: Date;
   endDate?: Date;

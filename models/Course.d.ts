@@ -1,13 +1,13 @@
 import { Model } from "mongoose";
 
 type Course = {
-  schoolName: string;
+  school: string;
   courseTitle: string;
   courseCode: string;
   courseUnits: string;
   lectInCharge: string;
-  facultyName: string;
-  deptName: string;
+  faculty: string;
+  dept: string;
 };
 
 type CourseModel = Model<Course>;

@@ -1,7 +1,8 @@
 import { Model } from "mongoose";
 
 type StudentCourse = {
-  studentId: string;
+  student: string;
+  school: string;
   courseTitle: string;
   courseCode: string;
   courseUnits: string;

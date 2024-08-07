@@ -26,7 +26,8 @@ const createStudentCourseController = async (
     }
 
     await createStudentCourseService({
-      studentId: id,
+      student: id,
+      school: student.school,
       courseTitle,
       courseCode,
       courseUnits,
@@ -59,9 +60,9 @@ const findStudentCoursesController = async (
       return res.status(400).json({ message: not_allowed });
     }
 
-    const studentCourses = await findStudentCoursesService({ studentId: id });
+    const studentCourses = await findStudentCoursesService({ student: id });
 
-    totalRecords = await StudentCourse.countDocuments({ studentId: id });
+    totalRecords = await StudentCourse.countDocuments({ student: id });
     totalPages = Math.ceil(totalRecords / pageSize);
 
     const response = {

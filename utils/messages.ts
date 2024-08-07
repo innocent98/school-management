@@ -58,7 +58,10 @@ export const student_not_found = "Student not found.";
 
 export const staff_not_found = "Staff not found.";
 
-export const exams_and_records_created = "Exams and Records created successfully!"
+export const school_not_found = "School not found.";
+
+export const exams_and_records_created =
+  "Exams and Records created successfully!";
 
 export const success = "Successful.";
 

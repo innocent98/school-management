@@ -1,21 +1,8 @@
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, Schema } = require("mongoose");
 
 const ContactInfoSchema = new mongoose.Schema({
   contactEmail: { type: String },
   contactPhone: { type: String },
-});
-
-const StudentSchema = new mongoose.Schema({
-  lastName: { type: String },
-  otherNames: { type: String },
-  email: { type: String },
-  enrollmentId: { type: String },
-});
-
-const StaffSchema = new mongoose.Schema({
-  fullname: { type: String },
-  email: { type: String },
-  role: { type: String },
 });
 
 const SchoolSchema = new mongoose.Schema(
@@ -33,10 +20,8 @@ const SchoolSchema = new mongoose.Schema(
     schoolPhone: { type: String, required: true },
     noOfSearch: { type: Number, default: 0 },
     contactInfo: { type: ContactInfoSchema, default: {} },
-    students: { type: [StudentSchema], default: [] },
-    studentIds: { type: Array, default: [] },
-    staffs: { type: [StaffSchema], default: [] },
-    staffIds: { type: Array, default: [] },
+    students: [{ type: Schema.Types.ObjectId, ref: "Student" }],
+    staffs: [{ type: Schema.Types.ObjectId, ref: "Staff" }],
   },
   { timestamps: true }
 );

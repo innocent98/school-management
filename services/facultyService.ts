@@ -11,6 +11,7 @@ const findSchoolFacultiesService = async (query: any) => {
   const faculties = await Faculty.find(query)
     .sort({ facultyName: 1 })
     .select({ updatedAt: 0 })
+    .populate("school")
     .exec();
 
   return faculties;

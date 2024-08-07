@@ -67,7 +67,7 @@ const findSchoolStaffsController = async (
   res: Response
 ) => {
   try {
-    const { id: _ } = req.user;
+    const { id } = req.user;
     // Pagination parameters
     const { query, page } = req.query as any;
 
@@ -76,15 +76,14 @@ const findSchoolStaffsController = async (
     let totalPages: number;
     const currentPage: number = parseInt(page) || 1;
 
-    const school = await findSchoolIdService(_);
-
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
-    const staffs = await findStaffsService({ school: school.schoolName });
+    const staffs = await findStaffsService({ school: staff.school });
 
-    totalRecords = await Staff.countDocuments({ school: school.schoolName });
+    totalRecords = await Staff.countDocuments({ school: staff.school });
     totalPages = Math.ceil(totalRecords / pageSize);
 
     const response = {
@@ -100,20 +99,22 @@ const findSchoolStaffsController = async (
   }
 };
 
-const findSchoolStaffController = async (req: Request | any, res: Response) => {
+const findSchoolStaffProfileController = async (
+  req: Request | any,
+  res: Response
+) => {
   try {
-    const { id: _ } = req.user;
-    const { id } = req.params;
+    const { id } = req.user;
+    const { id: _ } = req.params;
 
-    const school = await findSchoolIdService(_);
-
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
-    const staffs = await findStaffIdService(id);
+    const staffProfile = await findStaffIdService(_);
 
-    res.status(200).json({ data: staffs });
+    res.status(200).json({ data: staffProfile });
   } catch (err) {
     res.status(500).json({ message: connectionError });
   }
@@ -122,5 +123,5 @@ const findSchoolStaffController = async (req: Request | any, res: Response) => {
 export {
   createStaffController,
   findSchoolStaffsController,
-  findSchoolStaffController,
+  findSchoolStaffProfileController,
 };

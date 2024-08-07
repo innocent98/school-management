@@ -1,7 +1,7 @@
 import { Model } from "mongoose";
 
 type Department = {
-  schoolName: string;
+  school: string;
   deptName: string;
   facultyName: string
 };

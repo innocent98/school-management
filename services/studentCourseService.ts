@@ -11,6 +11,8 @@ const findStudentCoursesService = async (query: any) => {
   const courses = await StudentCourse.find(query)
     .sort({ courseTitle: 1 })
     .select({ updatedAt: 0 })
+    .populate("student")
+    .populate("school")
     .exec();
   return courses;
 };

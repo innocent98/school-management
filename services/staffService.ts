@@ -11,6 +11,7 @@ const findStaffsService = async (query: any) => {
   const staffs = await Staff.find(query)
     .sort({ fullName: 1 })
     .select({ updatedAt: 0, password: 0 })
+    .populate("school")
     .exec();
 
   return staffs;
@@ -22,6 +23,7 @@ const findStaffService = async (props: object) => {
       password: 0,
       updatedAt: 0,
     })
+    .populate("school")
     .exec();
 
   return staff;
@@ -33,6 +35,7 @@ const findStaffIdService = async (id: string) => {
       password: 0,
       updatedAt: 0,
     })
+    .populate("school")
     .exec();
 
   return staff;

@@ -20,6 +20,8 @@ const findSchoolsService = async (query: any, page: any, pageSize: number) => {
     })
     .skip((parseInt(page) - 1) * pageSize)
     .limit(pageSize)
+    .populate("students")
+    .populate("staffs")
     .exec();
 
   return schools;
@@ -28,6 +30,8 @@ const findSchoolsService = async (query: any, page: any, pageSize: number) => {
 const findSchoolService = async (props: object) => {
   const school = await School.findOne(props)
     .select({ updatedAt: 0, password: 0 })
+    .populate("students")
+    .populate("staffs")
     .exec();
 
   return school;
@@ -36,6 +40,8 @@ const findSchoolService = async (props: object) => {
 const findSchoolIdService = async (id: string) => {
   const school = await School.findById(id)
     .select({ updatedAt: 0, password: 0 })
+    .populate("students")
+    .populate("staffs")
     .exec();
 
   return school;
@@ -44,10 +50,12 @@ const findSchoolIdService = async (id: string) => {
 const findSchoolIdAndUpdateService = async (id: string, props: any) => {
   const school = await School.findByIdAndUpdate(
     id,
-    { $set: props },
+    { $addToSet: props },
     { new: true }
   )
     .select({ updatedAt: 0, password: 0 })
+    .populate("students")
+    .populate("staffs")
     .exec();
 
   return school;

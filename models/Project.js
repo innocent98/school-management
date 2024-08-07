@@ -1,6 +1,4 @@
 const { default: mongoose, Schema } = require("mongoose");
-const School = require("./School");
-const Student = require("./Student");
 
 const ProjectTopic = new mongoose.Schema({
   projectTopic: { type: String, required: true },
@@ -10,8 +8,8 @@ const ProjectTopic = new mongoose.Schema({
 
 const ProjectSchema = new mongoose.Schema(
   {
-    schoolName: { type: Schema.ObjectId, required: true, ref: School },
-    studentName: { type: Schema.ObjectId, required: true, ref: Student },
+    school: { type: Schema.ObjectId, required: true, ref: "School" },
+    student: { type: Schema.ObjectId, required: true, ref: "Student" },
     projectTopic: { type: [ProjectTopic], required: true, default: [] },
     startDate: { type: Date },
     endDate: { type: Date },

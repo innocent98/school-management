@@ -6,20 +6,20 @@ import {
   findSchoolFacultiesService,
 } from "../services/facultyService";
 import Faculty from "../models/Faculty";
+import { findStaffIdService } from "../services/staffService";
 
 const createFacultyController = async (req: Request | any, res: Response) => {
   try {
     const { id } = req.user;
     const { facultyName } = req.body;
 
-    const school = await findSchoolIdService(id);
-
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     await createFacultyService({
-      schoolName: school.schoolName,
+      school: staff.school,
       facultyName,
     });
 
@@ -32,7 +32,6 @@ const createFacultyController = async (req: Request | any, res: Response) => {
 const findSchoolFacultiesController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const school = await findSchoolIdService(id);
 
     // Pagination parameters
     const { query, page } = req.query as any;
@@ -43,17 +42,16 @@ const findSchoolFacultiesController = async (req: Request, res: Response) => {
     let totalPages: number;
     const currentPage: number = parseInt(page) || 1;
 
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     const faculties = await findSchoolFacultiesService({
-      schoolName: school.schoolName,
+      school: staff.school,
     });
 
-    totalRecords = await Faculty.countDocuments({
-      schoolName: school.schoolName,
-    });
+    totalRecords = await Faculty.countDocuments({ school: staff.school });
     totalPages = Math.ceil(totalRecords / pageSize);
 
     const response = {

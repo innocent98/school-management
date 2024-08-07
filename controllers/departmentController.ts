@@ -1,25 +1,30 @@
 import { Request, Response } from "express";
-import { connectionError, not_allowed, success } from "../utils/messages";
+import {
+  connectionError,
+  not_allowed,
+  school_not_found,
+  success,
+} from "../utils/messages";
 import { findSchoolIdService } from "../services/schoolService";
 import {
   createDepartmentService,
   findSchoolDeptService,
 } from "../services/departmentService";
 import Department from "../models/Department";
+import { findStaffIdService } from "../services/staffService";
 
 const createDeptController = async (req: Request | any, res: Response) => {
   try {
     const { id } = req.user;
     const { deptName, facultyName } = req.body;
 
-    const school = await findSchoolIdService(id);
-
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     await createDepartmentService({
-      schoolName: school.schoolName,
+      school: staff.school,
       deptName,
       facultyName,
     });
@@ -33,7 +38,6 @@ const createDeptController = async (req: Request | any, res: Response) => {
 const findSchoolDeptController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const school = await findSchoolIdService(id);
 
     // Pagination parameters
     const { query, page } = req.query as any;
@@ -44,16 +48,17 @@ const findSchoolDeptController = async (req: Request, res: Response) => {
     let totalPages: number;
     const currentPage: number = parseInt(page) || 1;
 
-    if (!school) {
+    const staff = await findStaffIdService(id);
+    if (!staff) {
       return res.status(400).json({ message: not_allowed });
     }
 
     const depts = await findSchoolDeptService({
-      schoolName: school.schoolName,
+      schoolName: staff.school,
     });
 
     totalRecords = await Department.countDocuments({
-      schoolName: school.schoolName,
+      schoolName: staff.school,
     });
     totalPages = Math.ceil(totalRecords / pageSize);
 

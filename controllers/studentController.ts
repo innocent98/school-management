@@ -56,12 +56,8 @@ const createStudentController = async (req: Request, res: Response) => {
       idCard,
     });
 
-    const addStudentToSchool = await findSchoolIdAndUpdateService(id, {
-      students: { lastName, otherNames, email, enrollmentId },
-    });
-
-    await addStudentToSchool?.updateOne({
-      $push: { studentIds: newStudent.id },
+    await findSchoolIdAndUpdateService(id, {
+      students: newStudent.id,
     });
 
     res.status(200).json({ message: accountCreated });
@@ -72,7 +68,7 @@ const createStudentController = async (req: Request, res: Response) => {
 
 const studentLoginController = async (req: Request, res: Response) => {
   try {
-    const { email, password, schoolName } = req.body;
+    const { email, password, school } = req.body;
 
     const existingStudent = await findStudentService({ email });
 
@@ -83,9 +79,9 @@ const studentLoginController = async (req: Request, res: Response) => {
       return res.status(400).json({ message: incorrectCredentials });
     }
 
-    const findStudentSchool = await findSchoolService({ schoolName });
+    const findStudentSchool = await findSchoolService({ school });
 
-    if (!findStudentSchool?.studentIds?.includes(existingStudent.id)) {
+    if (!findStudentSchool?.students?.includes(existingStudent.id)) {
       return res.status(400).json({ message: not_belong_to_school });
     }
 

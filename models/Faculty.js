@@ -1,8 +1,8 @@
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, Schema } = require("mongoose");
 
 const FacultySchema = new mongoose.Schema(
   {
-    schoolName: { type: String, required: true },
+    school: { type: Schema.Types.ObjectId, required: true, ref: 'School' },
     facultyName: { type: String, required: true },
   },
   { timestamps: true }
