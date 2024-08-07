@@ -9,4 +9,34 @@ const createExamAndRecordService = async (
   return savedExamAndRecord;
 };
 
-export { createExamAndRecordService };
+const findSchoolExamsAndRecordsService = async (
+  query: any,
+  page: any,
+  pageSize: number
+) => {
+  const examsAndRecords = await ExamsAndRecords.find(query)
+    .sort({ semester_session: 1 })
+    .select({ updatedAt: 0 })
+    .populate("school")
+    .skip((parseInt(page) - 1) * pageSize)
+    .limit(pageSize)
+    .exec();
+
+  return examsAndRecords;
+};
+
+const findSchoolExamAndRecordService = async (props: object) => {
+  const examAndRecord = await ExamsAndRecords.findOne(props)
+    .select({ updatedAt: 0 })
+    .populate("students")
+    .populate("courses")
+    .exec();
+
+  return examAndRecord;
+};
+
+export {
+  createExamAndRecordService,
+  findSchoolExamsAndRecordsService,
+  findSchoolExamAndRecordService,
+};

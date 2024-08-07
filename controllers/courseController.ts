@@ -14,14 +14,8 @@ import { findStaffIdService } from "../services/staffService";
 const createCourseController = async (req: Request | any, res: Response) => {
   try {
     const { id } = req.user;
-    const {
-      courseTitle,
-      courseCode,
-      courseUnits,
-      lectInCharge,
-      facultyName,
-      deptName,
-    } = req.body;
+    const { faculty, dept } = req.query;
+    const { courseTitle, courseCode, courseUnits, lectInCharge } = req.body;
 
     const staff = await findStaffIdService(id);
     if (!staff) {
@@ -34,8 +28,8 @@ const createCourseController = async (req: Request | any, res: Response) => {
       courseCode,
       courseUnits,
       lectInCharge,
-      facultyName,
-      deptName,
+      faculty,
+      dept,
     });
 
     res.status(200).json({ message: success_course_reg });
@@ -52,7 +46,7 @@ const findSchoolCoursesController = async (
     const { id } = req.user;
 
     // Pagination parameters
-    const { query, page } = req.query as any;
+    const { page } = req.query as any;
 
     const pageSize: number = 20; // Number of items to return per page
 

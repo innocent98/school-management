@@ -2,10 +2,8 @@ import { Request, Response } from "express";
 import {
   connectionError,
   not_allowed,
-  school_not_found,
   success,
 } from "../utils/messages";
-import { findSchoolIdService } from "../services/schoolService";
 import {
   createDepartmentService,
   findSchoolDeptService,
@@ -16,7 +14,7 @@ import { findStaffIdService } from "../services/staffService";
 const createDeptController = async (req: Request | any, res: Response) => {
   try {
     const { id } = req.user;
-    const { deptName, facultyName } = req.body;
+    const { deptName, faculty } = req.body;
 
     const staff = await findStaffIdService(id);
     if (!staff) {
@@ -26,7 +24,7 @@ const createDeptController = async (req: Request | any, res: Response) => {
     await createDepartmentService({
       school: staff.school,
       deptName,
-      facultyName,
+      faculty,
     });
 
     res.status(200).json({ message: success });

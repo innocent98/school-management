@@ -3,8 +3,8 @@ const { default: mongoose, Schema } = require("mongoose");
 const DepartmentSchema = new mongoose.Schema(
   {
     school: { type: Schema.Types.ObjectId, required: true, ref: "School" },
-    deptName: { type: String, required: true },
-    facultyName: { type: String, required: true },
+    deptName: { type: Schema.Types.ObjectId, required: true },
+    faculty: { type: Schema.Types.ObjectId, required: true, ref: "Faculty" },
   },
   { timestamps: true }
 );

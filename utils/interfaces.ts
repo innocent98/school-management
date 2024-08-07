@@ -65,7 +65,7 @@ export type facultyReg = {
 export type deptReg = {
   school: string;
   deptName: string;
-  facultyName: string;
+  faculty: string;
 };
 
 type ProjectTopic = {

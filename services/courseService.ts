@@ -12,6 +12,8 @@ const findSchoolCoursesService = async (query: any) => {
     .sort({ courseTitle: 1 })
     .select({ updatedAt: 0 })
     .populate("school")
+    .populate("faculty")
+    .populate("dept")
     .exec();
 
   return courses;
