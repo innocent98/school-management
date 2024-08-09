@@ -88,3 +88,12 @@ export type examsAndRecordsReg = {
   students?: string[];
   courses?: string[];
 };
+
+export type semester_sessionReg = {
+  school: string;
+  academic_year: string;
+  semester?: string;
+  term?: string;
+  startDate?: Date;
+  endDate?: Date;
+};

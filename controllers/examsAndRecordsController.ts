@@ -12,7 +12,7 @@ import {
 } from "../services/ExamsAndRecordsService";
 import ExamsAndRecords from "../models/ExamsAndRecords";
 
-const createExamsAndRecordsControoler = async (
+const createExamsAndRecordsController = async (
   req: Request | any,
   res: Response
 ) => {
@@ -78,7 +78,10 @@ const findSchoolExamsAndRecordsController = async (
   }
 };
 
-const findSchoolExamAndRecordController = async (req: Request | any, res: Response) => {
+const findSchoolExamAndRecordController = async (
+  req: Request | any,
+  res: Response
+) => {
   try {
     const { id } = req.user;
     const { semester_session } = req.query;
@@ -98,4 +101,8 @@ const findSchoolExamAndRecordController = async (req: Request | any, res: Respon
   }
 };
 
-export { createExamsAndRecordsControoler, findSchoolExamsAndRecordsController, findSchoolExamAndRecordController };
+export {
+  createExamsAndRecordsController,
+  findSchoolExamsAndRecordsController,
+  findSchoolExamAndRecordController,
+};

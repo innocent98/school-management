@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { connectionError, not_allowed, success } from "../utils/messages";
-import { findSchoolIdService } from "../services/schoolService";
 import {
   createFacultyService,
   findSchoolFacultiesService,
@@ -29,9 +28,9 @@ const createFacultyController = async (req: Request | any, res: Response) => {
   }
 };
 
-const findSchoolFacultiesController = async (req: Request, res: Response) => {
+const findSchoolFacultiesController = async (req: Request | any, res: Response) => {
   try {
-    const { id } = req.params;
+    const { id } = req.user;
 
     // Pagination parameters
     const { query, page } = req.query as any;

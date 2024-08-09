@@ -63,6 +63,8 @@ export const school_not_found = "School not found.";
 export const exams_and_records_created =
   "Exams and Records created successfully!";
 
+export const semester_session_created = "Semester session created successfully";
+
 export const success = "Successful.";
 
 export const failure = "Failed.";

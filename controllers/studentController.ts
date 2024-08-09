@@ -4,6 +4,7 @@ import {
   connectionError,
   existingAccount,
   incorrectCredentials,
+  not_allowed,
   not_belong_to_school,
   user_not_found,
 } from "../utils/messages";
@@ -18,8 +19,9 @@ import {
   findSchoolIdAndUpdateService,
   findSchoolService,
 } from "../services/schoolService";
+import { findStaffIdService } from "../services/staffService";
 
-const createStudentController = async (req: Request, res: Response) => {
+const createStudentController = async (req: Request | any, res: Response) => {
   try {
     const {
       lastName,
@@ -35,6 +37,12 @@ const createStudentController = async (req: Request, res: Response) => {
     } = req.body;
 
     const { id } = req.params;
+    const { id: _ } = req.user;
+
+    const staff = await findStaffIdService(_);
+    if (!staff) {
+      return res.status(400).json({ message: not_allowed });
+    }
 
     const existingStudent = await findStudentService({ email });
     const hashedPassword = await bcrypt.hash(password, 10);

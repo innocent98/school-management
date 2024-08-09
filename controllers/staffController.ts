@@ -10,13 +10,17 @@ import {
   accountCreated,
   connectionError,
   existingAccount,
+  incorrectCredentials,
   not_allowed,
+  not_belong_to_school,
 } from "../utils/messages";
 import {
   findSchoolIdAndUpdateService,
   findSchoolIdService,
+  findSchoolService,
 } from "../services/schoolService";
 import Staff from "../models/Staff";
+import { generateToken } from "../utils/jwt";
 
 const createStaffController = async (req: Request | any, res: Response) => {
   try {
@@ -48,15 +52,44 @@ const createStaffController = async (req: Request | any, res: Response) => {
       address,
     });
 
-    const addStudentToSchool = await findSchoolIdAndUpdateService(id, {
+    const addStaffToSchool = await findSchoolIdAndUpdateService(id, {
       staffs: { fullName, email, role },
     });
 
-    await addStudentToSchool?.updateOne({
+    await addStaffToSchool?.updateOne({
       $push: { staffIds: newStaff.id },
     });
 
     res.status(200).json({ message: accountCreated });
+  } catch (err) {
+    res.status(500).json({ message: connectionError });
+  }
+};
+
+const staffLoginController = async (req: Request, res: Response) => {
+  try {
+    const { email, password, school } = req.body;
+
+    const existingStaff = await findStaffService({ email });
+
+    if (
+      !existingStaff ||
+      !(await bcrypt.compare(password, existingStaff.password))
+    ) {
+      return res.status(400).json({ message: incorrectCredentials });
+    }
+
+    const findStaffSchool = await findSchoolService({ school });
+
+    if (!findStaffSchool?.students?.includes(existingStaff.id)) {
+      return res.status(400).json({ message: not_belong_to_school });
+    }
+
+    const tokenProps = { id: existingStaff.id, expiresIn: "30d" };
+
+    const token = generateToken(tokenProps);
+
+    res.status(200).json({ data: existingStaff, token });
   } catch (err) {
     res.status(500).json({ message: connectionError });
   }
@@ -122,6 +155,7 @@ const findSchoolStaffProfileController = async (
 
 export {
   createStaffController,
+  staffLoginController,
   findSchoolStaffsController,
   findSchoolStaffProfileController,
 };

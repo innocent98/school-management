@@ -33,9 +33,9 @@ const createDeptController = async (req: Request | any, res: Response) => {
   }
 };
 
-const findSchoolDeptController = async (req: Request, res: Response) => {
+const findSchoolDeptController = async (req: Request | any, res: Response) => {
   try {
-    const { id } = req.params;
+    const { id } = req.user;
 
     // Pagination parameters
     const { query, page } = req.query as any;
